@@ -31,7 +31,7 @@ return array(
 		'mpc'=>array(
 			'class'=>'application.modules.mpc.MpcModule',
 			'debug'=>false,
-			'ip'=>'127.0.0.1',
+			'hostname'=>'127.0.0.1',
 			'port'=>'6607',
 			'password'=>null,
 		),

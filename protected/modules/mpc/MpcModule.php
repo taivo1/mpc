@@ -4,7 +4,7 @@ class MpcModule extends CWebModule
 {
 	public $mpd = null;
 	public $debug;
-	public $ip;
+	public $hostname;
 	public $port;
 	public $password = null;
 	
@@ -20,7 +20,7 @@ class MpcModule extends CWebModule
 			'mpc.models.*',
 			'mpc.components.*',
 		));
-		$this->mpd = new mpd($this->ip, $this->port, $this->password, $this->debug);
+		$this->mpd = new mpd($this->hostname, $this->port, $this->password, $this->debug);
 	}
 
 	public function beforeControllerAction($controller, $action)
