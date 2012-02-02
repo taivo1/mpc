@@ -1,0 +1,7 @@
+[localhost]
+
+addr = "127.0.0.1"
+pass = "123456"
+auth_servers[] = "vs0"
+auth_servers[] = "vs1"
+

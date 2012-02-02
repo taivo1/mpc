@@ -1,0 +1,396 @@
+/*
+    Meshlium Manager System artwork and design by Ángela Aldea Celada.
+
+
+##################################
+# Cross Browser Opacity Settings #
+##################################
+
+This one is pretty simple, if you want your transparency to translate to all
+browsers, then make sure to use all four of the elements shown below.
+
+.class {
+opacity: 0.7;
+filter:alpha(opacity=70);
+-ms-filter:alpha(opacity=70);
+-moz-opacity:0.7;
+-khtml-opacity:0.7;
+}
+
+The first is CSS Standard and will work in all standards compliant browsers,
+the second is for Internet Explorer up to IE8, the third is for IE8, the fourth
+is for older Mozilla browsers and the last for older Safari browsers.
+
+##################################
+# Cross Browser Rounded Corners  #
+##################################
+
+For mozilla, opera and safari:
+
+.border {
+    -moz-border-radius-bottomleft:5px;
+    -moz-border-radius-bottomright:5px;
+    -moz-border-radius-topleft:5px;
+    -moz-border-radius-topright:5px;
+    -webkit-border-radius: 10px;
+    -opera-border-radius: 10px;
+}
+
+You can use -moz-border-radius:5px; if you don't want to declare four borders.
+
+
+*/
+
+/*
+    INDEX:
+    1.- MAIN CONTAINER
+    2.- TOP MENU
+    3.- SECTION NAVBAR
+    4.- PLUGIN NAVBAR
+    5.- PLUGIN CONTAINER
+    6.- FOOTER
+*/
+body{
+    background-color:#6c6d6f;
+}
+/* ----------------------------*/
+/* MAIN CONTAINER              */
+/* ----------------------------*/
+#main_content{
+    text-align:center;
+    /*width:100%;*/
+    width:1024px;
+    background:#6c6d6f url(../images/fondo.png) repeat-x scroll 0 0;
+    margin:0 auto;
+    min-height:800px;
+    min-width:1024px;
+}
+
+/* ----------------------------*/
+/* TOP MENU                    */
+/* ----------------------------*/
+#top_menu{
+    /*width:100%;*/
+    width:1024px;
+    background:#C6C7C9 url(../images/degradado_rojo.png) repeat-x scroll 0 0;
+    margin:0 auto;
+    height:52px;
+}
+#application_banner
+{
+    display:inline;
+    float:left;
+    background:transparent url(../images/titulo.png) no-repeat scroll 0 0;
+    margin: 0 0;
+    height:52px;
+    width:350px;
+    cursor:pointer;
+}
+#top_navigation_menu_hostname{
+    float:left;
+    display:inline;
+    margin-top:15px;
+    font-size:16px;
+    font-weight:bold;
+    color:#FFFFFF;
+}
+#top_navigation_menu{
+    float:right;
+    display:inline;
+    margin-right:30px;
+    margin-top:15px;
+    font-size:12px;
+    font-weight:bold;
+}
+#top_navigation_menu a.top_navigation_menu_item{
+    color:white;
+    font-family:Arial,Helvetica,sans-serif;
+    cursor:pointer;
+    text-decoration:none;
+}
+
+/* ----------------------------*/
+/* SECTION NAVBAR              */
+/* ----------------------------*/
+
+#section_navbar{
+    width:100%;
+    text-align:left;
+    overflow:hidden;
+    height:55px;
+    margin:10px 0px 0px 0px;
+}
+#section_navbar ul{
+    list-style-image:none;
+    list-style-position:outside;
+    list-style-type:none;
+}
+#section_navbar ul li{
+    display:inline;
+}
+#left_arrow{
+    background:transparent url(../images/flechas_iz.png) no-repeat scroll 0 0;
+    display:inline;
+    float:left;
+    height:48px;
+    margin-left:10px;
+    width:38px;
+    cursor:pointer;
+}
+#left_arrow:hover{
+    background:transparent url(../images/flechas_iz_hv.png) no-repeat scroll 0 0;
+}
+#section_navbar_menu{
+    display:inline;
+    float:left;
+    height:52px;
+    width:650px;
+    overflow:hidden;
+    position:relative;
+    background-color:#222222;
+    -moz-border-radius-bottomleft:5px;
+    -moz-border-radius-bottomright:5px;
+    -moz-border-radius-topleft:5px;
+    -moz-border-radius-topright:5px;
+    -webkit-border-radius: 10px;
+    -opera-border-radius: 10px;
+}
+#section_navbar_slider{
+    position:absolute;
+    top:4px;
+    left:0;
+    width:800%;
+    margin-left:3px;
+}
+#section_navbar_slider a{
+    text-decoration:none;
+}
+#section_navbar_slider img{
+    margin: 0px;
+}
+#right_arrow{
+    background:transparent url(../images/flechas.png) no-repeat scroll 0 0;
+    display:inline;
+    float:left;
+    height:48px;
+    margin-left:10px;
+    width:38px;
+    cursor:pointer;
+}
+#right_arrow:hover{
+    background:transparent url(../images/flechas_hv.png) no-repeat scroll 0 0;
+}
+#logo_libelium
+{
+    display:inline;
+    float:right;
+    margin: 0px 40px 0px 0px;
+    background:transparent url(../images/logo_gris.png) no-repeat scroll 0 0;
+    width:101px;
+    height:50px;
+    cursor:pointer;
+}
+
+/* ----------------------------*/
+/* INITIAL PAGE                */
+/* ----------------------------*/
+
+#initial_page{
+    text-align:center;
+    margin:50px 0px 0px 0px;
+}
+#not_selected_plugin{
+    text-align:left;
+    margin:50px 0px 0px 0px;
+    background:transparent url(../images/ondas-inicio.png) no-repeat scroll 0 0;
+    height:400px;
+}
+#not_selected_plugin table{
+    text-align:left;
+    margin:0px 0px 0px 350px;
+    color:#DDDDDD;
+    font-size:12px;
+}
+/* ----------------------------*/
+/* PLUGIN NAVBAR              */
+/* ----------------------------*/
+
+#plugin_navbar{
+    margin:10px 15px 0 28px;
+    display:inline;
+    float:left;
+    width:164px;
+    text-align:left;
+    clear:both;
+    overflow:auto;
+}
+
+#plugin_navbar_menu
+{
+    overflow:hidden;
+    width:163px;
+}
+
+#plugin_navbar ul{
+    list-style-image:none;
+    list-style-position:outside;
+    list-style-type:none;
+}
+
+#plugin_navbar ul li{
+    display:block;
+}
+
+#router_logo{
+    margin-top:150px;
+    margin-left:50px;
+    width:52px;
+    height:84px;
+    background:transparent url(../images/router.png) no-repeat scroll 0 0;
+}
+
+/* ----------------------------*/
+/* PLUGIN MAIN DIV             */
+/* ----------------------------*/
+
+#plugin_main_div{
+    border:3px solid #AAAAAA;
+    margin-top:12px;
+    overflow:hidden;
+    padding:10px 10px 10px 20px;
+    margin-right:15px;
+    /*width:810px;*/
+    background-color:#FFFFFF;
+    color:#AAAAAA;
+    font-family:Arial,Verdana,sans-serif;
+    font-size:12px;
+    -moz-border-radius-bottomleft:5px;
+    -moz-border-radius-bottomright:5px;
+    -moz-border-radius-topleft:5px;
+    -moz-border-radius-topright:5px;
+    -webkit-border-radius: 10px;
+    -opera-border-radius: 10px;
+}
+
+#plugin_main_div select{
+    background-color:#FFFFFF;
+    border:1px solid #AAAAAA;
+    color:black;
+    font-family:Arial,Verdana,sans-serif;
+    font-size:11px;
+    font-size-adjust:none;
+    font-stretch:normal;
+    font-style:normal;
+    font-variant:normal;
+    font-weight:normal;
+    line-height:normal;
+    margin:3px;
+    padding:3px;
+}
+
+#plugin_main_div input[type='text']{
+    background-color:#FFFFFF;
+    border:1px solid #AAAAAA;
+    color:black;
+    font-family:Arial,Verdana,sans-serif;
+    font-size:11px;
+    font-size-adjust:none;
+    font-stretch:normal;
+    font-style:normal;
+    font-variant:normal;
+    font-weight:normal;
+    line-height:normal;
+    margin:3px;
+    padding:3px;
+}
+
+#plugin_main_div input[type='text']{
+    background-color:#FFFFFF;
+    border:1px solid #AAAAAA;
+    color:black;
+    font-family:Arial,Verdana,sans-serif;
+    font-size:11px;
+    font-size-adjust:none;
+    font-stretch:normal;
+    font-style:normal;
+    font-variant:normal;
+    font-weight:normal;
+    line-height:normal;
+    margin:3px;
+    padding:3px;
+}
+
+#plugin_main_div input[type='button']{
+    text-transform:capitalize;
+}
+
+#plugin_main_div input[type='submit']{
+    text-transform:capitalize;
+}
+
+#plugin_main_div legend{
+    background-color:#FFFFFF;
+    color:#E35C50;
+    font-family:Arial,Verdana,sans-serif;
+    font-size:12px;
+    font-weight:bold;
+    text-transform:capitalize;
+}
+#plugin_main_div fieldset{
+    border:1px solid #CCCCCC;
+    margin-bottom:10px;
+    margin-top:10px;
+    -moz-border-radius-bottomleft:5px;
+    -moz-border-radius-bottomright:5px;
+    -moz-border-radius-topleft:5px;
+    -moz-border-radius-topright:5px;
+    -webkit-border-radius: 10px;
+    -opera-border-radius: 10px;
+}
+#plugin_main_div table{
+    font-size:12px;
+}
+/* ----------------------------*/
+/* PAGE ELEMENTS               */
+/* ----------------------------*/
+    .container{
+        margin:0 auto;
+        width:855px;
+    }
+
+
+/* ---------------------------*/
+/*       MAIN CONTENT         */
+/* ---------------------------*/
+     #maincontent{
+     }
+
+/* ----------------------------*/
+/*        COLUMN LEFT          */
+/* ----------------------------*/
+    #column-left{
+        float:left;
+        margin-right:30px;
+        width:472px;
+    }
+
+/* ---------------------------*/
+/*        COLUMN RIGHT        */
+/* ---------------------------*/
+    #column-right{
+        float:left;
+        width:353px;
+    }
+
+/* ---------------------------*/
+/*         FOOTER             */
+/* ---------------------------*/
+    
+
+
+/* ----------------------------*/
+/* CUSTOM CLASSES                 */
+/* ----------------------------*/
+/*In general, if I have some classes which can be applied to more*/
+/*than a section, I add them to the end of the CSS file in this way:*/
+

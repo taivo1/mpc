@@ -1,0 +1,21 @@
+/* 
+    Document   : mpc-ie
+    Created on : Jan 28, 2012, 4:24:06 PM
+    Author     : taivo
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+#content
+{
+    background: red;
+}

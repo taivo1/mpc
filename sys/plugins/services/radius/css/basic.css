@@ -1,0 +1,261 @@
+/* This file is part of the plugin skeleton for Meshlium manager system. */
+
+/*
+.time_slots_sel {
+    width: 150px;
+}
+
+.servers_sel {
+    width: 150px;
+}
+*/
+
+#list_auth_servers, #list_clients, #list_users
+{
+    margin-bottom: 10px;
+}
+
+.avs_entry, .acvs_entry, .clt_entry, .usr_entry,
+.edit_avs_entry, .edit_acvs_entry,
+.edit_clt_entry, .edit_usr_entry
+{
+    margin: 2px; 
+}
+
+.avs_entry, .acvs_entry, .clt_entry, .usr_entry
+{
+    padding: 2px;
+}
+
+.edit_avs_entry, .edit_acvs_entry,
+.edit_clt_entry, .edit_usr_entry
+{
+    background-color: #fff;
+}
+
+.avs_name, .acvs_name, .clt_name, .clt_vas, .usr_name
+{
+    width: 135px;
+}
+
+.clt_addr
+{
+    width: 120px;
+}
+
+.clt_vas
+{
+    width: 130px;
+}
+
+.avs_port, .acvs_port
+{
+    width: 50px;
+}
+
+.avs_tls, .avs_ttls, .avs_peap
+{
+    text-align: center;
+    width: 50px;
+}
+
+.usr_timeout
+{
+    width: 50px;
+}
+
+.usr_logtime
+{
+    width: 50px;
+}
+
+.usr_online
+{
+    width: 50px;
+}
+
+.as_list {
+    width: 150px;
+    height: 80px;
+}
+
+.ar_btn {
+    width: 90px;
+}
+
+.ts_row {
+    border-bottom: 2px solid #fff;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.table_header {
+    margin-top: 5px;
+    padding: 2px;
+    font-weight: bold;
+}
+
+.cert_table TD {
+    padding: 5px;
+}
+
+#delete_btn_panel, #certs_panel {
+    width: 290px;
+    padding: 5px;
+}
+
+#delete_btn_panel {
+    text-align: right;
+}
+
+.disabled {
+    border: 1px solid #aaa;
+    background-color: #eee;
+    color: #aaa;
+}
+
+#certs_panel, .radius_border {
+    border: #fff 1px solid;
+    -moz-border-radius-bottomleft:5px;
+    -moz-border-radius-bottomright:5px;
+    -moz-border-radius-topleft:5px;
+    -moz-border-radius-topright:5px;
+    -webkit-border-radius: 10px;
+    -opera-border-radius: 10px;
+}
+
+.right {
+    text-align: right;
+}
+
+.data_check_failed{
+    background-color:#EE8779 !important;
+}
+
+.ms_cte{
+    color:#E35C50;
+}
+
+.tooltip {
+    background-color: #fff;
+    border:1px solid #aaa;
+    color:#303030;
+    padding:10px 13px;
+    line-height:18px;
+    position:absolute;
+    z-index:2;
+}
+
+.pointer{
+    cursor:pointer;
+}
+#plugin_main_div{
+    text-align:left;
+    color: black;
+}
+#plugin_main_div input[type="password"]{
+background-color:#FFFFFF;
+border:1px solid #AAAAAA;
+color:black;
+font-family:Arial,Verdana,sans-serif;
+font-size:11px;
+font-size-adjust:none;
+font-stretch:normal;
+font-style:normal;
+font-variant:normal;
+font-weight:normal;
+line-height:normal;
+margin:3px;
+padding:3px;
+}
+.plugin_content{
+    background-color:#EEEEEE;
+    border:#AAAAAA 1px solid;
+    margin:15px;
+    padding:15px;
+    overflow:auto;
+    /* color:#444444; */
+}
+.plugin_content label{
+    color:#444444;
+}
+.first_row{
+    width:180px;
+}
+.table_label{
+    width:100px;
+}
+.title{
+    color:#FFFFFF;
+    background-color:#E35C50;
+    text-transform:uppercase;
+    padding:3px 15px;
+    font-size:13px;
+}
+.title2{
+    color:#E35C50;
+    margin-top:15px;
+    margin-left:35px;
+    font-weight:bold;
+}
+.pl1{
+    font-size:14px;
+    margin-left:5px;
+}
+.pl{
+    font-size:14px;
+    margin-top:20px;
+    margin-left:5px;
+}
+
+.apl1{
+    font-size:14px;
+    margin-bottom:10px;
+}
+
+.apl{
+    font-size:14px;
+    margin-top:20px;
+    margin-bottom:10px;
+}
+
+.ss{
+    padding-top:20px;
+}
+.nl{
+    padding-left:25px;
+}
+.right_align{
+    float:right;
+    margin-right:15px;
+}
+.bsave{
+    cursor:pointer;
+    margin:5px;
+    color:#FFFFFF;
+    background-color:#555555;
+    border-top-style:solid;
+    border-top-color:#999999;
+    border-bottom-style:solid;
+    border-bottom-color:#444444;
+    border-left-style:solid;
+    border-left-color:#999999;
+    border-right-style:solid;
+    border-right-color:#444444;
+}
+.bsave:hover{
+    color:#FFFFFF;
+    background-color:#777777;
+}
+.readonly{
+    background-color:#DDDDDD !important;
+}
+.btext{
+    color:#444444;
+}
+.ref{
+    color:#E35C50;
+    cursor:pointer;
+    font-weight:bold;
+    text-decoration:underline;
+}

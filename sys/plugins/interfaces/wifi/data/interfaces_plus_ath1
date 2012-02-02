@@ -1,0 +1,3 @@
+iwpriv ath1 maccmd 1
+iwpriv ath1 addmac 00:19:66:89:23:ba
+iwpriv ath1 addmac 00:19:66:89:23:aa

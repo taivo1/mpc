@@ -1,0 +1,28 @@
+interface=athX
+driver=madwifi
+ssid=
+hw_mode=
+channel=
+auth_algs=3 # (11, Open y Shared)
+
+macaddr_acl=2
+ieee8021x=1
+
+auth_server_addr=127.0.0.1
+auth_server_port=18120
+auth_server_shared_secret=123456
+
+acct_server_addr=127.0.0.1
+acct_server_port=1813
+acct_server_shared_secret=123456
+
+# Bit = 0 -> External RADIUS server
+# Bit = 1 -> Internal RADIUS server
+eap_server=0
+
+wpa=3 # wpa y wpa2
+#wpa_psk=
+wpa_key_mgmt=
+wpa_pairwise=CCMP TKIP
+wpa_group_rekey=600
+wpa_gmk_rekey=86400

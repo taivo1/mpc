@@ -1,0 +1,10 @@
+<Directory "/var/www/__dir__">
+        Options Indexes MultiViews FollowSymLinks
+        AllowOverride None
+        Order allow,deny
+        Allow from all
+        RewriteEngine On
+        RewriteBase /
+        RewriteCond %{SERVER_PORT} ^__port__$
+        RewriteRule ^.*$ __http__://%{SERVER_NAME}%{REQUEST_URI} [R,L]
+</Directory>

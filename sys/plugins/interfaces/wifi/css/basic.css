@@ -1,0 +1,98 @@
+.data_check_failed{
+    background-color:#EE8779 !important;
+}
+.ms_cte{
+    color:#E35C50;
+}
+.click
+{
+    cursor:pointer;
+}
+#plugin_main_div{
+    text-align:left;
+}
+#plugin_main_div input[type="password"]{
+background-color:#FFFFFF;
+border:1px solid #AAAAAA;
+color:black;
+font-family:Arial,Verdana,sans-serif;
+font-size:11px;
+font-size-adjust:none;
+font-stretch:normal;
+font-style:normal;
+font-variant:normal;
+font-weight:normal;
+line-height:normal;
+margin:3px;
+padding:3px;
+}
+#plugin_main_div h2{
+    color:#E35C50;
+    font-weight:bold;
+}
+#mac_filter_ath0 table{
+    width:320px;
+}
+select option{
+    /*text-align:center;*/
+}
+.plugin_content{
+    background-color:#EEEEEE;
+    border:#AAAAAA 1px solid;
+    margin:15px;
+    padding:15px;
+    overflow:auto;
+}
+.title{
+    color:#FFFFFF;
+    background-color:#E35C50;
+    text-transform:uppercase;
+    padding:3px 15px;
+    font-size:13px;
+}
+.title2{
+    color:#E35C50;
+    margin-top:15px;
+    margin-left:35px;
+    font-weight:bold;
+}
+.pl1{
+    font-size:14px;
+    margin-left:5px;
+}
+.pl{
+    font-size:14px;
+    margin-top:20px;
+    margin-left:5px;
+}
+.ss{
+    padding-top:20px;
+}
+.nl{
+    margin-left:25px;
+}
+.right_align{
+    float:right;
+    margin-right:15px;
+}
+.bsave{
+    cursor:pointer;
+    margin:5px;
+    color:#FFFFFF;
+    background-color:#555555;
+    border-top-style:solid;
+    border-top-color:#999999;
+    border-bottom-style:solid;
+    border-bottom-color:#444444;
+    border-left-style:solid;
+    border-left-color:#999999;
+    border-right-style:solid;
+    border-right-color:#444444;
+}
+.bsave:hover{
+    color:#FFFFFF;
+    background-color:#777777;
+}
+.btext{
+    color:#444444;
+}

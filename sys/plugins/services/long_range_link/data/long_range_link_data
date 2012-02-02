@@ -1,0 +1,7 @@
+[ath0]
+permanent_changes=1
+input_method=Auto
+distance_value=123
+acktimeout=
+ctstimeout=
+slottime=

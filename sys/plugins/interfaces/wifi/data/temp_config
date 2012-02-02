@@ -1,0 +1,8 @@
+[ath0]
+
+protocol = "none"
+
+[ath1]
+
+protocol = "none"
+

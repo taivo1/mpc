@@ -1,0 +1,167 @@
+/* This file is part of the plugin skeleton for Meshlium manager system. */
+/* CSS for devices plugin. */
+.information{
+    margin-bottom:15px;
+    color:#333333;
+}
+#plugin_main_div{
+    text-align:left;
+}
+#plugin_main_div h2{
+    color:#E35C50;
+    font-weight:bold;
+}
+#plugin_main_div h3{
+    color:#444444;
+    font-weight:bold;
+    text-transform:capitalize;
+}
+input[type="button"]{
+    cursor:pointer;
+}
+
+/* This file is part of the plugin skeleton for Meshlium manager system. */
+#plugin_main_div{
+    text-align:left;
+}
+.plugin_content{
+    background-color:#EEEEEE;
+    border:#AAAAAA 1px solid;
+    margin:15px;
+    padding:15px;
+    overflow:auto;
+    color:#444444;
+    line-height:18px;
+}
+.plugin_content a{
+    color:#000000;
+    text-decoration:underline;
+}
+.plugin_content a:hover{
+    color:#000000;
+    text-decoration:none;
+}
+.title{
+    color:#FFFFFF;
+    background-color:#E35C50;
+    text-transform:uppercase;
+    padding:3px 15px;
+    font-size:13px;
+}
+.title2{
+    color:#E35C50;
+    margin-top:15px;
+    margin-left:35px;
+    margin-left:20px;
+    font-weight:bold;
+}
+.pl1{
+    font-size:14px;
+    margin-left:5px;
+}
+.pl{
+    font-size:14px;
+    margin-top:20px;
+    margin-left:5px;
+}
+.ss{
+    padding-top:20px;
+}
+.nl{
+    margin-left:25px;
+}
+.right_align{
+    float:right;
+    margin-right:15px;
+}
+.bsave{
+    cursor:pointer;
+    margin:5px;
+    color:#FFFFFF;
+    background-color:#555555;
+    border-top-style:solid;
+    border-top-color:#999999;
+    border-bottom-style:solid;
+    border-bottom-color:#444444;
+    border-left-style:solid;
+    border-left-color:#999999;
+    border-right-style:solid;
+    border-right-color:#444444;
+}
+.bsave:hover{
+    color:#FFFFFF;
+    background-color:#777777;
+}
+.btext{
+    color:#444444;
+}
+
+td.media_button{
+	width:50px;
+	height:50px;
+	text-align:center;
+	//border:#CCCCCC solid 1px;
+	//-moz-border-radius:5px;
+}
+
+td.media_button:hover, td.media_button_long:hover, td.media_button_medium:hover{ 
+	background-color:#DDDDDD;
+	-moz-border-radius:6px;
+}
+
+td.media_button:active, td.media_button_long:active, td.media_button_medim:active{ 
+	background-color:#AAAAAA;
+	-moz-border-radius:6px;
+}
+
+td.media_button_long{
+	width:200;
+	height:50px;
+	text-align:center;
+	font-size:1.2em;
+	font-weight:bold;
+	color:#555555;
+}
+
+td.media_button_medium{
+	width:120;
+	height:50px;
+	text-align:center;
+	font-size:1.2em;
+	font-weight:bold;
+	color:#555555;
+}
+
+.editor{
+    width:700px;
+    height:300px;
+    min-width:700px;
+    min-height:300px;
+    border:#AAAAAA 1px solid;
+}
+
+.bsave{
+    cursor:pointer;
+    margin:5px;
+    color:#FFFFFF;
+    background-color:#555555;
+    border-top-style:solid;
+    border-top-color:#999999;
+    border-bottom-style:solid;
+    border-bottom-color:#444444;
+    border-left-style:solid;
+    border-left-color:#999999;
+    border-right-style:solid;
+    border-right-color:#444444;
+}
+.bsave:hover{
+    color:#FFFFFF;
+    background-color:#777777;
+}
+
+.right_align{
+    float:right;
+    margin-right:15px;
+}
+
+                                                  

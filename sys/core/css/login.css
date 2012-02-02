@@ -1,0 +1,60 @@
+@CHARSET "UTF-8";
+body{
+font-family:Arial, Helvetica Neue, Helvetica, sans-serif !important;
+font-size:12px;
+background:#FFFFFF
+}
+#main_div{
+background:#FFFFFF url(../images/login.png) no-repeat;
+width:900px;
+height:430px;
+overflow:hidden;
+margin: 40px auto;
+}
+.login_menu{
+position:relative;
+top: 170px;
+left:275px;
+}
+#login_form{
+height:198px;
+width:338px;
+background:transparent url(../images/cuadro-login.png) no-repeat;
+text-align:left;
+}
+#login_username{
+position:relative;
+top:47px;
+left:140px;
+color:#666666;
+width:200px;
+}
+#login_username input{
+color:#666666;
+width:140px;
+}
+#login_password{
+position:relative;
+top:60px;
+left:140px;
+color:#666666;
+width:200px;
+}
+#login_password input{
+color:#666666;
+width:140px;
+}
+#login_button{
+cursor:pointer;
+background:transparent url(../images/login-soft.png) no-repeat;
+color:#FFFFFF;
+clear:both;
+height:34px;
+width:70px;
+position:relative;
+top:75px;
+left:220px;
+border:0pt none;
+margin:0pt;
+padding:0pt;
+}

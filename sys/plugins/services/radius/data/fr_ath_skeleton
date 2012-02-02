@@ -1,0 +1,39 @@
+
+listen {
+       ipaddr = *
+       port = 1812X
+       type = auth
+
+       clients = servername
+}
+
+authorize {
+	#suffix
+
+	#update control {
+	#       Proxy-To-Realm := LOCAL
+	#}
+
+	files
+
+	#sql
+
+	eap
+}
+
+
+authenticate {
+	eap
+}
+
+session {
+	radutmp
+}
+
+
+post-auth {
+	Post-Auth-Type REJECT {
+		attr_filter.access_reject
+	}
+}
+

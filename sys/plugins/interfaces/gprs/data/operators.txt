@@ -1,0 +1,607 @@
+Australia - Back To Top
+Operator: - Optus
+GPRS APN: - internet
+Username: - 
+Password: - 
+DNS: - 202.139.83.3, 192.65.91.129
+
+Operator: - Telstra
+GPRS APN: - telstra.internet
+Username: - 
+Password: - 
+DNS: - 139.130.4.4, 203.50.170.2
+
+Operator: - Three
+GPRS APN: - 3netaccess
+Username: - a
+Password: - a
+DNS: - 202.124.68.130, 202.124.76.66
+
+Operator: - Vodafone
+GPRS APN: - vfinternet.au
+Username: - 
+Password: - 
+DNS: - 192.189.54.33, 210.80.58.3
+Austria - Back To Top
+Operator: - Connect Austria
+GPRS APN: - web.one.at
+Username: - user specific
+Password: - user specific
+DNS: - 194.24.128.100, 194.24.128.102
+
+Operator: - Max Online
+GPRS APN: - gprsinternet
+Username: - GPRS
+Password: - 
+DNS: - 213.162.64.1, 213.162.64.2
+
+Operator: - Max Online Business
+GPRS APN: - business.gprsinternet
+Username: - GPRS
+Password: - 
+DNS: - 213.162.64.1, 213.162.64.2
+
+Operator: - Max Online Metro
+GPRS APN: - gprsmetro
+Username: - GPRS
+Password: - 
+DNS: - 213.162.64.1, 213.162.64.2
+
+Operator: - Mobilkom A1
+GPRS APN: - A1.net
+Username: - gprs@a1plus.at
+Password: - 
+DNS: - 194.48.124.200, 194.48.139.254
+
+Operator: - Tele.Ring
+GPRS APN: - web
+Username: - web@telering.at
+Password: - web
+DNS: - 212.95.31.11, 212.95.31.35
+Belgium - Back To Top
+Operator: - Mobistar
+GPRS APN: - web.pro.be
+Username: - mobistar
+Password: - mobistar
+DNS: - 212.65.63.10, 212.65.63.145
+
+Operator: - Proximus
+GPRS APN: - internet.proximus.be
+Username: - 
+Password: - 
+DNS: - 195.238.2.21, 195.238.2.22
+Canada - Back To Top
+Operator: - Microcell
+GPRS APN: - internet.fido.ca
+Username: - fido
+Password: - fido
+DNS: - 204.92.15.211
+Czech Republic - Back To Top
+Operator: - Cesky Mobil (contract)
+GPRS APN: - internet
+Username: - 
+Password: - 
+DNS: - 212.67.64.2
+
+Operator: - Cesky Mobil (prepaid)
+GPRS APN: - cinternet
+Username: - 
+Password: - 
+DNS: - 212.67.64.2
+
+Operator: - Eurotel (contract)
+GPRS APN: - internet
+Username: - 
+Password: - 
+DNS: - 160.218.10.200, 160.218.43.200
+
+Operator: - Eurotel Go
+GPRS APN: - gointernet
+Username: - 
+Password: - 
+DNS: - 160.218.10.201, 194.228.2.1
+
+Operator: - Oscar (contract)
+GPRS APN: - internet
+Username: - 
+Password: - 
+DNS: - 217.77.161.130, 217.77.161.131
+
+Operator: - Oscar (Oskarta)
+GPRS APN: - ointernet
+Username: - 
+Password: - 
+DNS: - 217.77.161.130, 217.77.161.131
+
+Operator: - T-Mobile
+GPRS APN: - internet.t-mobile.cz
+Username: - 
+Password: - 
+DNS: - 62.141.0.1, 62.141.0.2
+Denmark - Back To Top
+Operator: - TDC
+GPRS APN: - internet
+Username: - 
+Password: - 
+DNS: - 193.162.146.9, 193.162.153.31
+
+Operator: - Sonofon
+GPRS APN: - 
+Username: - 
+Password: - 
+DNS: - 212.88.64.14, 212.88.64.15
+
+Operator: - Orange DK
+GPRS APN: - web.orange.dk
+Username: - 
+Password: - 
+DNS: - 212.97.206.131, 212.97.206.161
+Estonia - Back To Top
+Operator: - EMT
+GPRS APN: - internet.emt.ee
+Username: - 
+Password: - 
+DNS: - 217.71.33.200, 217.71.32.20
+Finland - Back To Top
+Operator: - Dna
+GPRS APN: - internet
+Username: - 
+Password: - 
+DNS: - 217.78.192.78, 217.78.192.22
+
+Operator: - Radiolinja
+GPRS APN: - internet
+Username: - 
+Password: - 
+DNS: - 213.161.33.200, 193.185.210.10
+
+Operator: - Sonera
+GPRS APN: - internet
+Username: - 
+Password: - 
+DNS: - 192.89.123.230, 192.89.123.231
+France - Back To Top
+Operator: - Bouygues
+GPRS APN: - ebouygtel.com
+Username: - 
+Password: - 
+DNS: - 62.201.129.99, 62.201.159.99
+
+Operator: - Bouygues (B2Bouygtel)
+GPRS APN: - b2bouygtel.com
+Username: - 
+Password: - 
+DNS: - 62.201.129.99
+
+Operator: - SFR
+GPRS APN: - websfr
+Username: - 
+Password: - 
+DNS: - 172.20.2.10, 194.6.128.4
+
+Operator: - Orange
+GPRS APN: - orange.fr
+Username: - orange
+Password: - orange
+DNS: - 194.051.003.056, 194.051.003.076
+Germany - Back To Top
+Operator: - D2 Vodafone
+GPRS APN: - web.vodafone.de
+Username: - any
+Password: - any
+DNS: - 139.7.30.125, 139.7.30.126
+
+Operator: - E-Plus
+GPRS APN: - internet.eplus.de
+Username: - eplus
+Password: - gprs
+DNS: - 212.023.97.2, 212.23.97.3
+
+Operator: - D1 T-Mobile
+GPRS APN: - internet.t-d1.de
+Username: - td1
+Password: - gprs
+DNS: - 193.254.160.1
+
+Operator: - O2 (Viag Interkom)
+GPRS APN: - internet
+Username: - 
+Password: - 
+DNS: - 195.182.096.28, 195.182.96.61
+Greece - Back To Top
+Operator: - Telestet
+GPRS APN: - gnet.b-online.gr
+Username: - your phone number
+Password: - 24680
+DNS: - 212.152.79.19, 212.152.79.20
+
+Operator: - Vodafone GR
+GPRS APN: - internet.vodafone.gr
+Username: - 
+Password: - 
+DNS: - 213.249.17.10, 213.249.17.11
+
+Operator: - Cosmote
+GPRS APN: - internet
+Username: - 
+Password: - 
+DNS: - 195.167.065.194
+Hongkong - Back To Top
+Operator: - CSL
+GPRS APN: - hkcsl or internet
+Username: - 
+Password: - 
+DNS: - 202.84.255.1, 203.116.254.150
+
+Operator: - SmarTone
+GPRS APN: - internet
+Username: - 
+Password: - 
+DNS: - 202.140.96.51, 202.140.96.52
+Hungary - Back To Top
+Operator: - Pannon (contract)
+GPRS APN: - net
+Username: - 
+Password: - 
+DNS: - 193.225.155.254, 194.149.0.157
+
+Operator: - Pannon (flat rate)
+GPRS APN: - netx
+Username: - 
+Password: - 
+DNS: - 193.225.155.254, 194.149.0.157
+
+Operator: - Vodafone (prepaid)
+GPRS APN: - vitamax.snet.internet.net
+Username: - 
+Password: - 
+DNS: - 80.244.97.30, 80.244.96.1
+
+Operator: - Vodafone (contract)
+GPRS APN: - standardnet.vodafone.hu
+Username: - 
+Password: - 
+DNS: - 80.244.97.30, 80.244.96.1
+
+Operator: - Westel (contract)
+GPRS APN: - internet
+Username: - user specific
+Password: - user specific
+DNS: - 194.176.224.3, 194.176.224.1
+India - Back To Top
+Operator: - BPL
+GPRS APN: - bplgprs.com
+Username: - bplmobile
+Password: - 
+DNS: - 202.169.145.34, 202.169.129.40
+
+Operator: - Orange
+GPRS APN: - portalnmms
+Username: - 
+Password: - 
+DNS: - 10.11.206.51, 10.11.206.50
+Indonesia - Back To Top
+Operator: - Indosat
+GPRS APN: - satelindogprs.com
+Username: - 
+Password: - 
+DNS: - 202.152.162.66, 202.152.162.67
+Ireland - Back To Top
+Operator: - O2 (contract)
+GPRS APN: - open.internet
+Username: - gprs
+Password: - gprs
+DNS: - 62.40.32.33, 62.40.32.34
+
+Operator: - O2 (prepaid)
+GPRS APN: - pp.internet
+Username: - gprs
+Password: - gprs
+DNS: - 62.40.32.33, 62.40.32.34
+Israel - Back To Top
+Operator: - MTC-Vodafone
+GPRS APN: - apn01
+Username: - 
+Password: - 
+DNS: - 10.10.10.30
+Italy - Back To Top
+Operator: - BLU Contratto
+GPRS APN: - INTERNET
+Username: - 
+Password: - 
+DNS: - 212.17.192.49, 212.17.192.49
+
+Operator: - BLU Prepagata
+GPRS APN: - PINTERNET
+Username: - 
+Password: - 
+DNS: - 212.17.192.49, 212.17.192.49
+
+Operator: - Vodafone Omnitel
+GPRS APN: - web.omnitel.it
+Username: - 
+Password: - 
+DNS: - 194.185.97.134
+
+Operator: - TIM
+GPRS APN: - uni.tim.it
+Username: - 
+Password: - 
+DNS: - 213.230.155.94, 213.230.130.222
+
+Operator: - Wind
+GPRS APN: - internet.wind
+Username: - 
+Password: - 
+DNS: - 212.245.255.2
+Lithuania - Back To Top
+Operator: - Bite GSM
+GPRS APN: - banga
+Username: - 
+Password: - 
+DNS: - 213.226.131.131, 193.219.32.13
+
+Operator: - Omnitel Lithuania
+GPRS APN: - gprs.omnitel.net
+Username: - 
+Password: - 
+DNS: - 194.176.32.129, 195.22.175.1
+Luxembourg - Back To Top
+Operator: - LUXGSM
+GPRS APN: - web.pt.lu
+Username: - 
+Password: - 
+DNS: - 194.154.192.101, 194.154.192.102
+Netherlands - Back To Top
+Operator: - KPN Mobile
+GPRS APN: - internet
+Username: - 
+Password: - 
+DNS: - 62.133.126.28, 62.133.126.29
+
+Operator: - T-Mobile
+GPRS APN: - internet
+Username: - t-mobile
+Password: - t-mobile
+DNS: - 193.79.237.39, 193.79.242.39
+Malaysia - Back To Top
+Operator: - DIGI
+GPRS APN: - diginet
+Username: - 
+Password: - 
+DNS: - 203.92.128.131, 203.92.128.132
+
+Operator: - Maxis
+GPRS APN: - internet.gprs.maxis
+Username: - 
+Password: - 
+DNS: - 202.75.129.101, 10.216.4.21
+
+Operator: - Timecel
+GPRS APN: - timenet.com.my
+Username: - 
+Password: - 
+DNS: - 203.121.16.85, 203.121.16.120
+
+Operator: - TM Touch
+GPRS APN: - internet
+Username: - 
+Password: - 
+DNS: - 202.188.0.133
+Norway - Back To Top
+Operator: - Netcom
+GPRS APN: - internet.netcom.no
+Username: - 
+Password: - 
+DNS: - 212.45.118.43, 212.45.118.44
+Poland - Back To Top
+Operator: - ERA
+GPRS APN: - erainternet
+Username: - erainternet
+Password: - erainternet
+DNS: - 213.158.194.1
+
+Operator: - Idea
+GPRS APN: - www.idea.pl
+Username: - idea
+Password: - idea
+DNS: - 194.9.223.79, 194.204.159.1
+
+Operator: - Plus GSM/Polkomtel
+GPRS APN: - www.plusgsm.pl
+Username: - 
+Password: - 
+DNS: - 212.2.96.51, 212.2.96.52
+Philippines - Back To Top
+Operator: - Globe
+GPRS APN: - www.globe.com.ph
+Username: - globe
+Password: - globe
+DNS: - 203.127.225.10, 203.127.225.11
+
+Operator: - Smart
+GPRS APN: - internet
+Username: - 
+Password: - 
+DNS: - 202.57.96.3, 202.57.96.4
+Portugal - Back To Top
+Operator: - Optimus
+GPRS APN: - internet
+Username: - 
+Password: - 
+DNS: - 194.79.69.129
+
+Operator: - TMN
+GPRS APN: - internet
+Username: - 
+Password: - 
+DNS: - 194.65.3.20, 194.65.3.21
+
+Operator: - Vodafone (Telcel)
+GPRS APN: - internet.vodafone.pt
+Username: - 
+Password: - 
+DNS: - 212.18.160.133, 212.18.160.134
+Russia - Back To Top
+Operator: - BeeLine
+GPRS APN: - internet.beeline.ru
+Username: - 
+Password: - 
+DNS: - 194.190.195.66, 194.190.192.34
+
+Operator: - MTS
+GPRS APN: - internet.mts.ru
+Username: - mts
+Password: - mts
+DNS: - 213.87.0.1, 213.87.1.1
+Serbia-Montenegro - Back To Top
+Operator: - Mobtel Srbija
+GPRS APN: - internet
+Username: - mobtel
+Password: - gprs
+DNS: - 217.65.192.1
+
+Operator: - Telekom Srbija
+GPRS APN: - gprsinternet
+Username: - mts
+Password: - 064
+DNS: - 195.178.38.3
+Singapore - Back To Top
+Operator: - M1
+GPRS APN: - mobilenet
+Username: - 
+Password: - 
+DNS: - 202.79.64.21, 202.79.64.26
+
+Operator: - SingTel
+GPRS APN: - internet
+Username: - 
+Password: - 
+DNS: - 165.21.100.88, 165.21.83.88
+
+Operator: - Starhub
+GPRS APN: - shwapint
+Username: - 
+Password: - 
+DNS: - 203.116.1.78, 203.116.254.150
+Slovenia - Back To Top
+Operator: - Mobitel
+GPRS APN: - internet
+Username: - 
+Password: - 
+DNS: - 193.189.160.11, 193.189.160.12
+
+Operator: - Si.mobil
+GPRS APN: - internet.si.mobil
+Username: - 
+Password: - 
+DNS: - 80.95.225.230, 80.95.225.231
+Spain - Back To Top
+Operator: - Orange (Amena)
+GPRS APN: - internet
+Username: - CLIENTE
+Password: - AMENA
+DNS: - 213.143.33.8, 213.143.32.20
+
+Operator: - Telefonica (Movistar)
+GPRS APN: - movistar.es
+Username: - movistar
+Password: - movistar
+DNS: - 194.179.001.100, 194.179.001.101
+
+Operator: - Vodafone (Airtel)
+GPRS APN: - airtelnet.es
+Username: - vodafone
+Password: - vodafone
+DNS: - 212.73.32.3, 212.73.32.67
+
+Operator: - Masmovil
+GPRS APN: - internetmas
+Username: - " "
+Password: - " "
+DNS: - 213.143.33.8, 62.36.225.150
+
+Switzerland - Back To Top
+Operator: - Orange
+GPRS APN: - internet
+Username: - 
+Password: - 
+DNS: - 213.55.128.1, 213.55.128.2
+
+Operator: - Sunrise
+GPRS APN: - internet
+Username: - internet
+Password: - internet
+DNS: - 212.35.35.35, 212.35.35.5
+
+Operator: - Swisscom
+GPRS APN: - gprs.swisscom.ch
+Username: - 
+Password: - 
+DNS: - 164.128.36.34, 164.128.76.39
+Taiwan - Back To Top
+Operator: - Chunghwa Telekom
+GPRS APN: - emome or internet
+Username: - 
+Password: - 
+DNS: - 10.1.1.1
+
+Operator: - Far EasTone
+GPRS APN: - fetnet01
+Username: - 
+Password: - 
+DNS: - 210.241.199.199
+Thailand - Back To Top
+Operator: - AIS
+GPRS APN: - internet
+Username: - 
+Password: - 
+DNS: - 202.183.255.20, 202.183.255.21
+
+Operator: - DTAC
+GPRS APN: - www.dtac.co.th
+Username: - 
+Password: - 
+DNS: - 203.155.33.1, 203.44.144.33
+Turkey - Back To Top
+Operator: - Aria
+GPRS APN: - aycell
+Username: - user specific
+Password: - user specific
+DNS: - 212.156.4.1, 212.156.4.4
+
+Operator: - Turkcell
+GPRS APN: - internet
+Username: - 
+Password: - 
+DNS: - 212.252.168.240, 212.252.119.4
+UK - Back To Top
+Operator: - O2 UK (contract)
+GPRS APN: - mobile.o2.co.uk
+Username: - web
+Password: - password
+DNS: - 193.113.200.200, 193.113.200.201
+
+Operator: - Orange UK
+GPRS APN: - orangeinternet
+Username: - 
+Password: - 
+DNS: - 158.43.192.1, 158.143.128.1
+
+Operator: - Jersey Telecom
+GPRS APN: - pepper
+Username: - 
+Password: - 
+DNS: - 212.9.0.135, 212.9.0.135
+USA - Back To Top
+Operator: - Cingular
+GPRS APN: - isp.cingular
+Username: - ISPDA@CINGULARGPRS.COM
+Password: - CINGULAR1
+DNS: - 66.209.10.201, 66.209.10.202
+
+Operator: - T-Mobile (Internet)
+GPRS APN: - internet2.voicestream.com
+Username: - 
+Password: - 
+DNS: - 216.155.175.105, 216.155.175.106

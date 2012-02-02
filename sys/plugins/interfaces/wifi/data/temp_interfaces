@@ -1,0 +1,25 @@
+auto lo
+	iface lo inet loopback
+
+auto eth0
+	allow-hotplug eth0
+	iface eth0 inet static
+	address 192.168.1.20
+	netmask 255.255.255.0
+	gateway 192.168.1.1
+	dns-nameservers 192.168.1.1
+	broadcast 192.168.1.255
+	network 192.168.1.0  
+
+auto ath0
+	iface ath0 inet static
+	address 10.1.20.1
+	netmask 255.255.255.0
+	pre-up wlanconfig ath0 create wlandev wifi0 wlanmode ap
+	post-up iwconfig ath0 essid 1
+	up iwpriv ath0 hide_ssid 0
+	post-up iwconfig ath0 mode master
+	post-up iwconfig ath0 channel 1
+	up iwpriv ath0 mode 11g
+	post-up iwconfig ath0 rate auto
+
