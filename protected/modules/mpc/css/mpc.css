@@ -468,6 +468,7 @@ ul.folder>li
     list-style: none;
     padding: 0;
     margin: 0;
+    position: relative;
 }
 ul.folder>li:not(.open):hover
 {

@@ -47,6 +47,31 @@ var Base = {
 
     },
     
+    addMask: function(el){
+	if(!el.hasClass('disabled')) el.addClass('disabled');
+	var width = el.width(),
+	    height = el.height(),
+	    mask = $(document.createElement('div'));
+	    
+	    mask.addClass('mask');
+	    mask.css('width',width+'px');
+	    mask.css('height',height+'px');
+	    mask.css('position','absolute');
+	    mask.css('background','#80CFFF');
+	    mask.css('opacity','0.5');
+	    mask.css('z-index','10');
+	    mask.css('margin','0');
+	    mask.css('padding','0');
+	    mask.css('top','0px');
+	    mask.css('left','0px');
+	    
+	    el.append(mask);
+    },
+    removeMask: function(el){
+	el.find('div.mask').remove();
+	if(el.hasClass('disabled')) el.removeClass('disabled');	
+    },
+    
     /**
      *	Function to filter js arrays
      *	

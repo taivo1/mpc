@@ -621,38 +621,59 @@ var Mpc = {
 		addItemToPlaylist: function(el,e){
 		    e.preventDefault();
 		    var uri = $(el).attr('href');
+		    
+		    Base.addMask($(el));	
 		    Ajax.query(mainUrl + '/mpc/browse/addtoplaylist', 'uri='+uri, function(data){
 			if(data) Mpc.status = data.status; 
+			Base.removeMask($(el));
 		    },"POST","json");
 		},
 		addFolderToPlaylist: function(el,e){
 		    e.stopPropagation();
 		    e.preventDefault();
-		    var uri = $(el).closest('a').attr('href');
+		    var uri = $(el).closest('a').attr('href'),
+			item = $(el).closest('li');
+		    
+		    Base.addMask(item);		    
 		    Ajax.query(mainUrl + '/mpc/browse/addtoplaylist', 'uri='+uri, function(data){
-			if(data) Mpc.status = data.status; 
+			if(data) Mpc.status = data.status;
+			Base.removeMask(item);
 		    },"POST","json");
 		},
 		addPlToPlaylist: function(el,e){
 		    e.preventDefault();
-		    var uri = $(el).attr('href');
+		    var uri = $(el).attr('href'),
+			item = $(el).closest('li');
+		    
+		    Base.addMask(item);	
 		    Ajax.query(mainUrl + '/mpc/browse/addpltoplaylist', 'uri='+uri, function(data){
-			if(data) Mpc.status = data.status; 
+			if(data) Mpc.status = data.status;
+			Base.removeMask(item);
 		    },"POST","json");
 		},
 		addToPlaylistAndPlay: function(el,e){
 		    e.preventDefault();
 		    var uri = $(el).closest('a').attr('href'),
-			type = $(el).closest('li').attr('class');
-		    Ajax.query(mainUrl + '/mpc/browse/play', 'uri='+uri+'&type='+type, Mpc.play,"POST","json");
+			item = $(el).closest('li'),
+			type = item.attr('data-type');
+			
+		    Base.addMask(item);	
+		    Ajax.query(mainUrl + '/mpc/browse/play', 'uri='+uri+'&type='+type, function(data){
+			Base.removeMask(item);
+			Mpc.play(data);
+		    },"POST","json");
 		},
 		addNextToPlaylist: function(el,e){
 		    e.preventDefault();
 		    var uri = $(el).closest('a').attr('href'),
-			type = $(el).closest('li').attr('class');
+			item = $(el).closest('li'),
+			type = item.attr('data-type');
+			
+		    Base.addMask(item);	
 		    Ajax.query(mainUrl + '/mpc/browse/addnext', 'uri='+uri+'&type='+type, function(data){
 			if(data) Mpc.status = data.status;
 			Mpc.enablePlayer();
+			Base.removeMask(item);
 		    },"POST","json");
 		},
 		deletePlaylist: function(el,e){
