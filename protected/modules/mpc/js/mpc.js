@@ -305,7 +305,7 @@ var Mpc = {
 	    }
 	    
 	    //update
-	    if(Mpc.status.updatings_db){
+	    if(Mpc.status.updating_db){
 		if(!$('#update-status').hasClass('active')) $('#update-status').addClass('active');
 	    }else{
 		if($('#update-status').hasClass('active')) $('#update-status').removeClass('active');
