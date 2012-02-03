@@ -125,6 +125,23 @@ body
     float: right;
     width: 500px;
 }
+    #mainmenu  div.status-item
+    {
+	float: right;
+	height: 12px;
+	margin: 7px;
+    }
+    #mainmenu  div.status-item a
+    {
+	text-decoration: none;
+	color: #999;
+	text-shadow: #333 0px 0px 3px;
+    }
+    #mainmenu  div.status-item a.active
+    {
+	color: #FFF;
+	text-shadow: #FFF 0px 0px 3px;
+    }
 
 #mainmenu ul
 {

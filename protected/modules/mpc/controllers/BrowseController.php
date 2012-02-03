@@ -78,14 +78,15 @@ class BrowseController extends Controller
 	
 	public function actionUpdate()
 	{
-	    if(isset($_POST['uri'])){
-		
+	    $id = 0;
+	    if(isset($_POST['uri'])){		
 		$id = $this->module->mpd->DBUpdate($_POST['uri']);
 		
 	    }else{
 		$id = $this->module->mpd->DBUpdate();
 	    }
-	    if($id) echo json_encode(array('response'=>$id));
+	    $data = array('current'=>$this->module->mpd->currentsong,'status'=>$this->module->mpd->status, 'id'=>$id);
+	    echo json_encode($data);
 	}
 	
 	public function actionDeletePlaylist()

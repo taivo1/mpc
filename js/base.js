@@ -111,6 +111,8 @@ var Base = {
 			target = $('#content').find('li.selected');
 			if(target.length > 0){
 			    $(window).scrollTop(target.offset().top - 175);
+			}else{
+			    $(window).scrollTop(0);
 			}
 		    }else if(Base.page == 'library' && Base.pageData.library instanceof Object){
 			$('#content').html(Base.pageData.library);
@@ -120,6 +122,8 @@ var Base = {
 			target = $('#content').find('li.selected');
 			if(target.length > 0){
 			    $(window).scrollTop(target.offset().top - 248);
+			}else{
+			    $(window).scrollTop(0);
 			}
 		    }else{
 			Ajax.query(url, null, function(data){
@@ -130,6 +134,8 @@ var Base = {
 			    target = $('#content').find('li.current');
 			    if(target.length > 0){
 				$(window).scrollTop(target.offset().top - 175);
+			    }else{
+				$(window).scrollTop(0);
 			    }
 			    
 			});

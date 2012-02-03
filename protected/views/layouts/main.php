@@ -137,6 +137,11 @@
 		    <?php if(isset($mpcModule->mpd->status['volume'])) echo $mpcModule->mpd->status['volume'];?>
 		</div>
 		<div id="volbar"></div>
+		<div class="status-item"><a id="update-status" title="Database Update" href="<?php echo Yii::app()->request->baseUrl.'/mpc/player/u'; ?>"><span>U</span></a></div>
+		<div class="status-item"><a id="single-status" title="Single Mode" href="<?php echo Yii::app()->request->baseUrl.'/mpc/player/single'; ?>"><span>S</span></a></div>
+		<div class="status-item"><a id="repeat-status" title="Repeat Mode" href="<?php echo Yii::app()->request->baseUrl.'/mpc/player/repeat'; ?>"><span>R</span></a></div>
+		<div class="status-item"><a id="consume-status" title="Consume Mode" href="<?php echo Yii::app()->request->baseUrl.'/mpc/player/consume'; ?>"><span>C</span></a></div>
+		<div class="status-item"><a id="random-status" title="Random Mode" href="<?php echo Yii::app()->request->baseUrl.'/mpc/player/random'; ?>"><span>Rnd</span></a></div>
 		<div class="clear"></div>
 	    </div>
 	    <div class="clear"></div>

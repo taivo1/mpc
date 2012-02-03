@@ -81,14 +81,18 @@ class mpd
 	const MPD_CMD_PLLOAD =      "load";
 	const MPD_CMD_PLSAVE =      "save";
 	const MPD_CMD_KILL =        "kill";
+	
 	const MPD_CMD_UPDATE =      "update";
 	const MPD_CMD_REPEAT =      "repeat";
+	const MPD_CMD_SINGLE =      "single";
+	const MPD_CMD_CONSUME =     "consume";
+	const MPD_CMD_RANDOM =      "random";
+	
 	const MPD_CMD_LSDIR =       "lsinfo";
 	const MPD_CMD_SEARCH =      "search";
 	const MPD_CMD_START_BULK =  "command_list_begin";
 	const MPD_CMD_END_BULK =    "command_list_end";
-	const MPD_CMD_FIND =        "find";
-	const MPD_CMD_RANDOM =      "random";
+	const MPD_CMD_FIND =        "find";	
 	const MPD_CMD_SEEK =        "seek";
 	const MPD_CMD_PLSWAPTRACK = "swapid";
 	const MPD_CMD_PLMOVETRACK = "moveid";
@@ -698,7 +702,39 @@ class mpd
 		$this->_addLog(__METHOD__,"response: '".$resp."'");
 		return $resp;
 	}
-
+	
+	/** 
+         * SetSingle() 
+	 * 
+	 * Enables 'single' mode. The <sngVal> parameter 
+	 * is either 1 (on) or 0 (off).
+	 */
+	public function SetSingle($sngVal)
+	{
+		$this->_addLog(__METHOD__,"singleValue: '".$sngVal."'");
+		$rpt = $this->SendCommand(self::MPD_CMD_SINGLE,$sngVal);
+//		$this->status['single'] = (int)$sngVal;
+		$this->GetStatus();
+		$this->_addLog(__METHOD__,"response: '".$rpt."'");
+		return $rpt;
+	}
+	
+	/** 
+         * SetConsume() 
+	 * 
+	 * Enables 'consume' mode. The <conVal> parameter 
+	 * is either 1 (on) or 0 (off).
+	 */
+	public function SetConsume($conVal)
+	{
+		$this->_addLog(__METHOD__,"consumeValue: '".$conVal."'");
+		$rpt = $this->SendCommand(self::MPD_CMD_CONSUME,$conVal);
+//		$this->status['consume'] = (int)$conVal;
+		$this->GetStatus();
+		$this->_addLog(__METHOD__,"response: '".$rpt."'");
+		return $rpt;
+	}
+	
         /** 
          * SetRepeat() 
 	 * 
@@ -709,7 +745,8 @@ class mpd
 	{
 		$this->_addLog(__METHOD__,"repeatValue: '".$repVal."'");
 		$rpt = $this->SendCommand(self::MPD_CMD_REPEAT,$repVal);
-		$this->status['repeat'] = $repVal;
+//		$this->status['repeat'] = (int)$repVal;
+		$this->GetStatus();
 		$this->_addLog(__METHOD__,"response: '".$rpt."'");
 		return $rpt;
 	}
@@ -724,7 +761,8 @@ class mpd
 	{
 		$this->_addLog(__METHOD__,"randomVal: '".$rndVal."'");
 		$resp = $this->SendCommand(self::MPD_CMD_RANDOM,$rndVal);
-		$this->status['random'] = $rndVal;
+//		$this->status['random'] = (int)$rndVal;
+		$this->GetStatus();
 		$this->_addLog(__METHOD__,"response: '".$resp."'");
 		return $resp;
 	}

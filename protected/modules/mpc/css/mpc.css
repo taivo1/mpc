@@ -83,7 +83,7 @@ div.spinner
 	text-align: center;
     }
     #playlist>li.even{background: #FFF;}
-    #playlist>li.odd{background: #EEE;}
+    #playlist>li.odd{background: #EEE;}   
     #playlist>li.selected
     {
 	background: #ccc;
@@ -96,9 +96,17 @@ div.spinner
 	background: #888 !important;
 	-moz-box-shadow: inset 0 0 5px #333;
 	-webkit-box-shadow: inset 0 0 5px#333;
-	box-shadow: inner 0 0 5px #333;
-	
+	box-shadow: inner 0 0 5px #333;	
     }
+    #playlist>li.current-sortable
+    {
+	border-bottom: 1px solid #ddd;
+	background: #FFF;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+    }
+    
     #playlist>li.current>div
     {
 	color: #FFF;

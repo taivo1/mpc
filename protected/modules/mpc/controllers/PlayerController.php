@@ -86,6 +86,47 @@ class PlayerController extends Controller
 		echo json_encode($response);
 	    }
 	}
+	
+	
+	public function actionSingle()
+	{
+	    if(isset($_POST['state'])){
+		$this->module->mpd->SetSingle((int)$_POST['state']);
+		$data = array('current'=>$this->module->mpd->currentsong,'status'=>$this->module->mpd->status);
+		echo json_encode($data);
+	    }
+	}
+	public function actionRepeat()
+	{
+	    if(isset($_POST['state'])){
+		$r = $this->module->mpd->SetRepeat((int)$_POST['state']);
+		$data = array('current'=>$this->module->mpd->currentsong,'status'=>$this->module->mpd->status,'r'=>$r);
+		echo json_encode($data);
+	    }
+	}
+	public function actionConsume()
+	{
+	    if(isset($_POST['state'])){
+		$this->module->mpd->SetConsume((int)$_POST['state']);
+		$data = array('current'=>$this->module->mpd->currentsong,'status'=>$this->module->mpd->status);
+		echo json_encode($data);
+	    }
+	}
+	public function actionRandom()
+	{
+	    if(isset($_POST['state'])){
+		$this->module->mpd->SetRandom((int)$_POST['state']);
+		$data = array('current'=>$this->module->mpd->currentsong,'status'=>$this->module->mpd->status);
+		echo json_encode($data);
+	    }
+	}
+	public function actionTest()
+	{
+	    $r = $this->module->mpd->SetRepeat("1");
+	    var_dump($r);
+	    
+	    
+	}
     
     
 }

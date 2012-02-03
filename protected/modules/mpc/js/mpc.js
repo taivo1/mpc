@@ -18,6 +18,12 @@ var Mpc = {
 	    Mpc.beforeHandlerAction(Mpc.handlers.playerControl,this,e);
 	});
 	
+	$(document).delegate('a#single-status, a#random-status, a#consume-status, a#repeat-status','click',function(e){
+	    Mpc.beforeHandlerAction(Mpc.handlers.setMode,this,e);
+	});
+	
+	
+	
 	//playlist events
 	$(document).delegate('#playlist li','dblclick',function(e){
 	    Mpc.beforeHandlerAction(Mpc.handlers.playPlaylistSong,this,e)
@@ -233,7 +239,7 @@ var Mpc = {
     movePlaylistTrack: function(element,position){
 	var trackId = element.attr('id').split('-')[1];
 	    
-	    element.css('border-bottom','1px solid #ddd');
+	    element.addClass('current-sortable');
 	    Base.CreateLoader(element);
 	Ajax.query(mainUrl + '/mpc/playlist/move', 'trackid='+trackId+'&position='+position+'&idle='+Mpc.idleStatus, function(data){			
 		$('#content').html(data);
@@ -265,7 +271,47 @@ var Mpc = {
 			.removeClass('current')
 			.find('a.remove').show();
 	}
-    },  
+    }, 
+    updatePlayerMode: function(){
+	if(Mpc.status){
+	    console.log(Mpc.status.repeat);
+	    //repeat
+	    if(Mpc.status.repeat == "1"){
+		console.log('k');
+		if(!$('#repeat-status').hasClass('active')) $('#repeat-status').addClass('active');
+	    }else{
+		if($('#repeat-status').hasClass('active')) $('#repeat-status').removeClass('active');
+	    }
+	    
+	    //random
+	    if(Mpc.status.random == "1"){
+		if(!$('#random-status').hasClass('active')) $('#random-status').addClass('active');
+	    }else{
+		if($('#random-status').hasClass('active')) $('#random-status').removeClass('active');
+	    }
+	    
+	    //single
+	    if(Mpc.status.single == "1"){
+		if(!$('#single-status').hasClass('active')) $('#single-status').addClass('active');
+	    }else{
+		if($('#single-status').hasClass('active')) $('#single-status').removeClass('active');
+	    }
+	    
+	    //consume
+	    if(Mpc.status.consume == "1"){
+		if(!$('#consume-status').hasClass('active')) $('#consume-status').addClass('active');
+	    }else{
+		if($('#consume-status').hasClass('active')) $('#consume-status').removeClass('active');
+	    }
+	    
+	    //update
+	    if(Mpc.status.updatings_db){
+		if(!$('#update-status').hasClass('active')) $('#update-status').addClass('active');
+	    }else{
+		if($('#update-status').hasClass('active')) $('#update-status').removeClass('active');
+	    }  
+	}
+    },
     play: function(data){
 	console.log(data);
 	
@@ -348,8 +394,7 @@ var Mpc = {
 		default:
 		    callback = Mpc.stop;
 	    }
-	    console.log('ststus');
-	    console.log(data.status.playlistlength);
+	    Mpc.updatePlayerMode();
 	    if(data.status.playlistlength == "0"){
 		Mpc.disablePlayer();
 	    }else{
@@ -359,7 +404,9 @@ var Mpc = {
 	    callback(data);
 	},"POST",'json');
     },
-
+    
+    
+    
     
     
     handlers: {
@@ -405,7 +452,18 @@ var Mpc = {
 		    }
 		    return false;
 		},
-		
+		setMode: function(el,e){
+			e.preventDefault();
+			var url = $(el).attr('href'),
+			    state = ($(el).hasClass('active')) ? "0" : "1";
+			    
+			    console.log(state);
+			    Ajax.query(url, 'state='+state, function(data){
+				Mpc.status = data.status;
+				Mpc.updatePlayerMode();
+			    },"POST",'json');
+			
+		},
 		
 		playPlaylistSong: function(el,e){
 		    e.stopPropagation();
@@ -613,6 +671,8 @@ var Mpc = {
 			row = $(el).closest('li');
 		    $(el).html('<img src="'+mainUrl+'/images/ajax-loader.gif" />');
 		    Ajax.query(mainUrl + '/mpc/browse/update', 'uri='+uri, function(data){
+			if(data) Mpc.status = data.status;
+			Mpc.updatePlayerMode();
 			Ajax.query(mainUrl + '/mpc/browse', 'uri='+uri, function(data){
 			    var d = $(data);
 			    d.css('display','none');
