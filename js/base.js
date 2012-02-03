@@ -47,6 +47,37 @@ var Base = {
 
     },
     
+    /**
+     *	Function to filter js arrays
+     *	
+     *  @param array 'passedArray' - array to filter
+     *  @param array 'passedFilter' - array with filter elements
+     *  @param boolean 'keep' if true reurns matches otherwise returns elements that didn't match 
+     *  
+     *  @return array
+     */
+    filter: function(passedArray, passedFilter, keep){
+	
+	keep = Boolean(keep);
+
+	
+	var filteredArray = passedArray.filter(
+	    function(el) { // executed for each element
+		
+		for (var i = 0; i < passedFilter.length; i++) { // iterate over filter
+
+		    if (passedFilter[i] == el) {
+		       if(keep) return true;
+		       return false;        // if we have identical elements we remove one
+		    }
+		}
+		if(keep) return false;
+		return true;
+	    }
+	);     
+	return filteredArray;
+    },
+    
     // initializes Base object
     init: function(){
 	
@@ -73,19 +104,23 @@ var Base = {
 		    $(el).closest('li').addClass('active');
 			
 			
-		    Ajax.hash.changeHash(url);		    
+		    Ajax.hash.changeHash(Ajax.calcUrl(url));		    
 		    Base.ShowPageLoader();
 		    if(Base.page == 'browse' && Base.pageData.browse instanceof Object){
 			$('#content').html(Base.pageData.browse);
 			target = $('#content').find('li.selected');
-			$(window).scrollTop(target.offset().top - 175);
+			if(target.length > 0){
+			    $(window).scrollTop(target.offset().top - 175);
+			}
 		    }else if(Base.page == 'library' && Base.pageData.library instanceof Object){
 			$('#content').html(Base.pageData.library);
 			$(window).scrollTop(0);
 		    }else if(Base.page == 'search' && Base.pageData.search instanceof Object){
 			$('#content').html(Base.pageData.search);
 			target = $('#content').find('li.selected');
-			$(window).scrollTop(target.offset().top - 248);
+			if(target.length > 0){
+			    $(window).scrollTop(target.offset().top - 248);
+			}
 		    }else{
 			Ajax.query(url, null, function(data){
 			    $('#content').html(data);
@@ -112,14 +147,14 @@ var Base = {
 
 		    var fragment = Ajax.hash.getHash();
 		    var url = mainUrl + fragment;
-		    
+		
 		    var elementFound = false;
 		    if(!fragment || !url) return false;
 
 		    //in case we have <a> tag in our document
 		    $("a").each(function(){
 			 var href = $(this).attr( "href" );
-
+			 
 			 if ( href ===  url ) {
 			     
 			    if(Ajax.hash.hashEvent==0) $(this).trigger('click');
@@ -129,28 +164,6 @@ var Base = {
 			 }
 		    });
 
-//		    //if we don't find <a> element we check allowed urls object'
-//		    if(!elementFound){
-//
-//			for(var key in allowedUrls){
-//
-//			    var filter = Base.filter(url.split('/'),key.split('/'),true);
-//			    var filteredUrl = filter.join('/');
-//
-//			    if(key == filteredUrl){
-//
-//				var pageData = allowedUrls[key];
-//				var a = document.createElement('a');
-//
-//				a.href = url;
-//				a.appendChild(document.createTextNode(pageData.label));
-//				Base.addTab($(a));
-//
-//				//for a page redirect to mainurl we should remove hash part
-//				if(pageData.removehash == true) window.location.hash = "";
-//			    }
-//			}
-//		    }
 		}
 		
 

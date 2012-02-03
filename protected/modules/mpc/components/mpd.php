@@ -902,10 +902,15 @@ class mpd
 	public function Next()
 	{
 		$this->_addLog(__METHOD__,"send");
-		if ( !is_null($rpt = $this->SendCommand(self::MPD_CMD_NEXT)) ){
-		    $this->GetStatus();
+		$rpt = null;
+		if((int)$this->status['playlistlength'] <= (int)$this->status['song'] + 1){
 		    $this->GetCurrentSong();
-		}    
+		}else{
+		    if ( !is_null($rpt = $this->SendCommand(self::MPD_CMD_NEXT)) ){
+			$this->GetStatus();
+			$this->GetCurrentSong();
+		    } 
+		}
 		$this->_addLog(__METHOD__,"response: '".$rpt."'");		
 		return $rpt;
 	}

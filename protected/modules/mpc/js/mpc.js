@@ -171,10 +171,19 @@ var Mpc = {
     
     
     disablePlayer: function(){
-	if(!$('a.player').hasClass('disabled')) $('a.player').addClass('disabled');
+	$('a.player').each(function(){
+	    if(!$(this).hasClass('disabled')) $(this).addClass('disabled');
+	})
+
+    },
+    disableNext: function(){
+	if(!$('a#next').hasClass('disabled')) $('a#next').addClass('disabled');
     },
     enablePlayer: function(){
-	if($('a.player').hasClass('disabled')) $('a.player').removeClass('disabled');
+	$('a.player').each(function(){
+	    if($(this).hasClass('disabled')) $(this).removeClass('disabled');
+	})
+
     },
     
     initVolumeBar: function(vol){
@@ -260,7 +269,9 @@ var Mpc = {
     play: function(data){
 	console.log(data);
 	
-	if(data.status.playlistlength != "0"){
+	Mpc.status = data.status;
+	
+	if(Mpc.status.playlistlength != "0"){
 	    Mpc.enablePlayer();
 	    $('a.player').removeClass('active');
 	    $('#play').addClass('active');
@@ -297,23 +308,29 @@ var Mpc = {
 	$('a.player').removeClass('active');
 	if(Mpc.slider instanceof Object) Mpc.slider.Reset();
 	$('#cursong').html("");
+	if(data){
+	    Mpc.status = data.status;
+	}	
 	Mpc.Idle(true);
     },
     pause: function(data){
 	$('a.player').removeClass('active');
 	$('#pause').addClass('active');
 	if(Mpc.slider instanceof Object) Mpc.slider.Clear();
+	if(data.status){
+	    Mpc.status = data.status;
+	}
 	Mpc.Idle(true);
     },
     seek: function(position){
 	if(Mpc.slider instanceof Object){
 	    var time = Mpc.slider.calcTime(position);
-	    Ajax.query(mainUrl + 'mpc/player/seek', 'pos='+time, Mpc.play,"POST",'json');
+	    Ajax.query(mainUrl + '/mpc/player/seek', 'pos='+time, Mpc.play,"POST",'json');
 	}
     },
     changeVolume: function(vol){
 	var volume = parseInt(vol);
-	Ajax.query(mainUrl + 'mpc/player/changevolume', 'vol='+volume, function(data){
+	Ajax.query(mainUrl + '/mpc/player/changevolume', 'vol='+volume, function(data){
 	    console.log(data);
 	},"POST",'json');	    
     },
@@ -331,6 +348,8 @@ var Mpc = {
 		default:
 		    callback = Mpc.stop;
 	    }
+	    console.log('ststus');
+	    console.log(data.status.playlistlength);
 	    if(data.status.playlistlength == "0"){
 		Mpc.disablePlayer();
 	    }else{
@@ -376,8 +395,14 @@ var Mpc = {
 			    break;
 			default:
 			    callback = Mpc.play;
-		    }		   
-		    Ajax.query(url, null, callback,"POST",'json');
+		    }
+		    if(id == "next" && parseInt(Mpc.status.playlistlength) <= parseInt(Mpc.status.song) + 1){
+			Mpc.disableNext();
+		    }else{
+			Mpc.enablePlayer();
+		
+			Ajax.query(url, null, callback,"POST",'json');
+		    }
 		    return false;
 		},
 		
@@ -500,7 +525,7 @@ var Mpc = {
 			Ajax.query(mainUrl + '/mpc/browse', 'uri='+uri, function(data){
 			    
 			    var d = $(data);
-			    console.log(d);
+
 			    d.css('display','none');
 			    row.append(d).removeClass('closed').addClass('open').find('span.update').first().fadeIn(200);
 			    row.find('ul.folder').show(200);
@@ -539,23 +564,23 @@ var Mpc = {
 		    e.preventDefault();
 		    var uri = $(el).attr('href');
 		    Ajax.query(mainUrl + '/mpc/browse/addtoplaylist', 'uri='+uri, function(data){
-			
-		    },"POST");
+			if(data) Mpc.status = data.status; 
+		    },"POST","json");
 		},
 		addFolderToPlaylist: function(el,e){
 		    e.stopPropagation();
 		    e.preventDefault();
 		    var uri = $(el).closest('a').attr('href');
 		    Ajax.query(mainUrl + '/mpc/browse/addtoplaylist', 'uri='+uri, function(data){
-			
-		    },"POST");
+			if(data) Mpc.status = data.status; 
+		    },"POST","json");
 		},
 		addPlToPlaylist: function(el,e){
 		    e.preventDefault();
 		    var uri = $(el).attr('href');
 		    Ajax.query(mainUrl + '/mpc/browse/addpltoplaylist', 'uri='+uri, function(data){
-		
-		    },"POST");
+			if(data) Mpc.status = data.status; 
+		    },"POST","json");
 		},
 		addToPlaylistAndPlay: function(el,e){
 		    e.preventDefault();
@@ -568,6 +593,7 @@ var Mpc = {
 		    var uri = $(el).closest('a').attr('href'),
 			type = $(el).closest('li').attr('class');
 		    Ajax.query(mainUrl + '/mpc/browse/addnext', 'uri='+uri+'&type='+type, function(data){
+			if(data) Mpc.status = data.status;
 			Mpc.enablePlayer();
 		    },"POST","json");
 		},

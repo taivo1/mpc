@@ -103,25 +103,25 @@
 				
 				array(
 				    'label'=>'Playlist',
-				    'url'=>array('/playlist'),
+				    'url'=>Yii::app()->request->baseUrl.'/playlist',
 				    'linkOptions'=>array('class'=>'ajax'),
 				    'itemOptions'=>array('id'=>'menu-item-playlist')
 				    ),
 				array(
 				    'label'=>'Browse',
-				    'url'=>array('/browse'),
+				    'url'=>Yii::app()->request->baseUrl.'/browse',
 				    'linkOptions'=>array('class'=>'ajax'),
 				    'itemOptions'=>array('id'=>'menu-item-browse')
 				    ),
 				array(
 				    'label'=>'Library',
-				    'url'=>array('/library'),
+				    'url'=>Yii::app()->request->baseUrl.'/library',
 				    'linkOptions'=>array('class'=>'ajax'),
 				    'itemOptions'=>array('id'=>'menu-item-library')
 				    ),
 				array(
 				    'label'=>'Search',
-				    'url'=>array('/search'),
+				    'url'=>Yii::app()->request->baseUrl.'/search',
 				    'linkOptions'=>array('class'=>'ajax'),
 				    'itemOptions'=>array('id'=>'menu-item-search')
 				    ),

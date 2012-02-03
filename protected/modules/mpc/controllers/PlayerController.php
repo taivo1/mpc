@@ -28,7 +28,9 @@ class PlayerController extends Controller
 	public function actionNext()
 	{
 	    $this->module->mpd->Next();
+	
 	    $data = array('current'=>$this->module->mpd->currentsong,'status'=>$this->module->mpd->status);
+	    
 	    echo json_encode($data);
 	}
 	public function actionPrev()

@@ -4,7 +4,7 @@ class PlaylistController extends Controller
 {
 	/**
 	 * 
-	 */
+	 */ 
 	public function actionIndex()
 	{
 	    if(isset($_GET['idle']) && $_GET['idle'] == "true") $this->module->mpd->NoIdle();

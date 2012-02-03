@@ -7,9 +7,6 @@ class BrowseController extends Controller
 	    if(isset($_POST['uri'])){
 		$data = $this->module->mpd->GetDir($_POST['uri']);
 		$this->render('browse',array('data'=>$data));
-//		echo '<pre>';
-//		var_dump($data);
-//		echo '</pre>';
 		Yii::app()->end();
 	    }
 	    $this->render('browse',array('data'=>$this->module->mpd->GetDir()));
@@ -19,7 +16,9 @@ class BrowseController extends Controller
 	{
 	    if(isset($_POST['uri'])){
 
-		echo $this->module->mpd->PLAdd($_POST['uri']);
+		$this->module->mpd->PLAdd($_POST['uri']);
+		$data = array('current'=>$this->module->mpd->currentsong,'status'=>$this->module->mpd->status);
+		echo json_encode($data);
 	    }
 	}
 	
@@ -27,8 +26,9 @@ class BrowseController extends Controller
 	{
 	    if(isset($_POST['uri'])){
 		
-		echo $_POST['uri'];
-		echo $this->module->mpd->PLLoad($_POST['uri']);
+		$this->module->mpd->PLLoad($_POST['uri']);
+		$data = array('current'=>$this->module->mpd->currentsong,'status'=>$this->module->mpd->status);
+		echo json_encode($data);
 	    }
 	}
 	
@@ -82,10 +82,10 @@ class BrowseController extends Controller
 		
 		$id = $this->module->mpd->DBUpdate($_POST['uri']);
 		
-		if($id) echo json_encode(array('response'=>$id));
-		
-		
+	    }else{
+		$id = $this->module->mpd->DBUpdate();
 	    }
+	    if($id) echo json_encode(array('response'=>$id));
 	}
 	
 	public function actionDeletePlaylist()
