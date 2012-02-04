@@ -9,6 +9,7 @@
 		switch($type){
 		    case 'directories':
 			$class = 'directory closed';
+			$itemType = 'directory';
 			$uri = $item;
 			$pathArray = array_reverse(explode('/', $item));
 			$name = $pathArray[0];			    
@@ -18,6 +19,7 @@
 			break;
 		    case 'playlists':
 			$class = 'playlist';
+			$itemType = 'playlist';
 			$uri = $item;
 			$pathArray = array_reverse(explode('/', $item));
 			$name = $pathArray[0];
@@ -27,8 +29,9 @@
 			$name .= '<div class="clear"></div>';
 			break;
 		    default:
-			$class = 'file'; 
-			$uri = $item['file'];
+			$class = 'file';
+			$itemType = 'file';
+			$uri = $item['file'];		
 			$pathArray = array_reverse(explode('/', $item['file']));
 			$name = '<span class="name">';
 			$name .= isset($item['Artist']) ? $item['Artist'].' - ' : '';
@@ -45,9 +48,9 @@
 		}
 	    ?>
 
-	    <li class="<?php echo $class; ?>">
+	    <li class="<?php echo $class; ?>" data-type="<?php echo $itemType; ?>">
 
-		<a href="<?php echo $uri; ?>">
+		<a href="<?php echo urlencode($uri); ?>">
 		    <div><span><?php echo $name;?></span></div>
 		</a>
 	    </li>
