@@ -10,6 +10,8 @@ var Mpc = {
     idleStatus: false,
     status: null,
     volume: null,
+    updateInterval: null,
+    dbUpdate: 0,
      
     init: function(){
 	
@@ -127,7 +129,10 @@ var Mpc = {
 	$(document).delegate('#'+Mpc.slideId,'click',function(e){Mpc.handlers.playerSlideClick(this,e)});
 	
 	// we should update satatus when initializing Mpc obj
-	Mpc.getStatus();
+	Mpc.getStatus(function(data){
+	    
+	    Mpc.initVolumeBar(data.status.volume);
+	});
 	
 
 	
@@ -273,11 +278,12 @@ var Mpc = {
 	}
     }, 
     updatePlayerMode: function(){
+	
 	if(Mpc.status){
-	    console.log(Mpc.status.repeat);
+	   
 	    //repeat
 	    if(Mpc.status.repeat == "1"){
-		console.log('k');
+		
 		if(!$('#repeat-status').hasClass('active')) $('#repeat-status').addClass('active');
 	    }else{
 		if($('#repeat-status').hasClass('active')) $('#repeat-status').removeClass('active');
@@ -306,8 +312,10 @@ var Mpc = {
 	    
 	    //update
 	    if(Mpc.status.updating_db){
+		console.log('k11');
 		if(!$('#update-status').hasClass('active')) $('#update-status').addClass('active');
 	    }else{
+		console.log('k22');
 		if($('#update-status').hasClass('active')) $('#update-status').removeClass('active');
 	    }  
 	}
@@ -381,31 +389,51 @@ var Mpc = {
 	},"POST",'json');	    
     },
     
-    getStatus: function(){
+    getStatus: function(callback){
 
 	Ajax.query(mainUrl + '/mpc/player/status', 'idle='+Mpc.idleStatus, function(data){
 
-	    var callback = function(data){};
 	    Mpc.status = data.status;
-	    switch(data.status.state){
-		case "play":
-		    callback = Mpc.play;
-		    break;
-		default:
-		    callback = Mpc.stop;
-	    }
 	    Mpc.updatePlayerMode();
-	    if(data.status.playlistlength == "0"){
+	    
+	    if(Mpc.status.playlistlength == "0"){
 		Mpc.disablePlayer();
 	    }else{
 		Mpc.enablePlayer();
 	    }
-	    Mpc.initVolumeBar(data.status.volume);
-	    callback(data);
+	    
+	    switch(Mpc.status.state){
+		case "play":
+		    Mpc.play(data);
+		    break;
+		case "pause":
+		    Mpc.pause(data);
+		    break;
+		default:
+		    Mpc.stop(data);
+	    }
+	    
+	    if(callback instanceof Function){
+		callback(data);
+	    }
+	    
 	},"POST",'json');
     },
     
-    
+    checkUpdateStatus: function(callback){
+	
+	    Mpc.updateInterval = setInterval( function(){
+		
+		if(!Mpc.status.updating_db){
+		    clearInterval(Mpc.updateInterval);
+		    Mpc.updatePlayerMode();
+		    if(callback instanceof Function) callback();
+		}
+		Ajax.query(mainUrl + '/mpc/player/status', 'idle='+Mpc.idleStatus, function(data){
+		    Mpc.status = data.status;
+		},"POST",'json');
+	    }, 4000 );	
+    },
     
     
     
@@ -688,28 +716,52 @@ var Mpc = {
 		updateDatabase: function(el,e){
 		    e.stopPropagation();
 		    e.preventDefault();
-		    var uri = $(el).closest('a').attr('href'),
-			row = $(el).closest('li');
-		    $(el).html('<img src="'+mainUrl+'/images/ajax-loader.gif" />');
-		    Ajax.query(mainUrl + '/mpc/browse/update', 'uri='+uri, function(data){
-			if(data) Mpc.status = data.status;
-			Mpc.updatePlayerMode();
-			Ajax.query(mainUrl + '/mpc/browse', 'uri='+uri, function(data){
-			    var d = $(data);
-			    d.css('display','none');
-			    row.find('ul.folder').first().hide(200).remove();
-			    row.append(d).removeClass('open').removeClass('closed').addClass('open').find('span.update').first().fadeIn(200);
-			    row.find('ul.folder').show(200);
-			    Base.pageData['browse'] = $('#content').find('ul.folder').first();
-			    Mpc.queryAction = 0;
-			    
-			},"POST");
+		    
+		    if(Mpc.dbUpdate == 0){
+		    
+			var uri = $(el).closest('a').attr('href'),
+			    row = $(el).closest('li');
+
+			Mpc.dbUpdate = 1;
+			row.addClass('updating');
+			Base.pageData['browse'] = $('#content').find('ul.folder').first();			
+			Base.ShowPageLoader();
 			
-			$(el).html('');
-			
-			
-			
-		    },"POST");
+			Ajax.query(mainUrl + '/mpc/browse/update', 'uri='+uri, function(data){
+
+			    if(data) Mpc.status = data.status;
+			    Mpc.updatePlayerMode();
+			    Mpc.checkUpdateStatus(function(){
+
+				Ajax.query(mainUrl + '/mpc/browse', 'uri='+uri, function(data){
+				    var d = $(data);
+				    var folder = Base.pageData.browse.find('li.updating');
+				    
+				    Base.pageData.browse.find('li.updating>ul.folder').first().remove();
+				    Base.pageData.browse.find('li.updating')
+								    .append(d)
+								    .removeClass('open')
+								    .removeClass('closed')
+								    .removeClass('updating')
+								    .addClass('open')
+								    .find('span.update').first().html('').show();
+				    
+				    Mpc.queryAction = 0;
+				    Mpc.dbUpdate = 0;
+				    if(Base.page == 'browse'){
+					$('#content').html(Base.pageData.browse);
+				    }
+				},"POST");
+
+			    });
+
+
+
+
+
+			},"POST","json");
+		    
+		    }
 		},
 		
 		
