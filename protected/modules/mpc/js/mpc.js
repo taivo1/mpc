@@ -786,7 +786,7 @@ var Mpc = {
 		    e.preventDefault();
 		    $('#artists>li.artist').removeClass('selected');
 		    $(el).closest('li').addClass('selected');
-		    var artist = encodeURI($(el).text());
+		    var artist = $(el).attr('href');
 		    
 		    Ajax.query(mainUrl + '/mpc/library/albums', 'artist='+artist, function(data){
 			
@@ -798,10 +798,11 @@ var Mpc = {
 		    e.preventDefault();
 		    $('#albums>li.album').removeClass('selected');
 		    $(el).closest('li').addClass('selected');
-		    var album = encodeURI($(el).text());
+		    var album = ($(el).hasClass('all')) ? null : $(el).attr('href');
+		    var artist = $('#artists>li.selected>a').attr('href');
 		    
-		    Ajax.query(mainUrl + '/mpc/library/find', 'album='+album, function(data){
-			
+		    Ajax.query(mainUrl + '/mpc/library/find', 'album='+album+'&artist='+artist, function(data){
+			console.log(data);
 			$('#library>div.col-right').html(data);
 			Base.pageData['library'] = $('#library');
 		    },"POST");

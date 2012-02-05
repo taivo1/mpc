@@ -1,13 +1,13 @@
+
 <ul id="songs">
     <?php 
 	
 	if(isset($songs) && !empty($songs) && is_array($songs)){
 	    
-	    foreach($songs as $index => $item){ 
+	    foreach($songs as $index => $song){ 
 		
-		if(!empty($item) && is_array($item)){ 
+		 
 		    
-		    foreach($item as $song){
 			
 			if(!empty($song) && is_array($song)){
 			   
@@ -22,8 +22,8 @@
 			    </li>
 			<?php  
 			}
-		    } 
-		}
+		    
+		
 	    } 
 	} 
      

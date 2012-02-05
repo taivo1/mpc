@@ -42,18 +42,34 @@ class LibraryController extends Controller
     
     public function actionFind()
     {
+	$albumSongs = null;
+	$artistSongs = null;
+	$songs = array();
 	if(isset($_POST['album'])){
 	    
-	    $songs = $this->module->mpd->Search(mpd::MPD_SEARCH_ALBUM, $_POST['album']);
-	    $this->render('album',array('songs'=>$songs));
+	    $albumSongs = $this->module->mpd->Search(mpd::MPD_SEARCH_ALBUM, $_POST['album']);
+	    //$this->render('songs',array('songs'=>$songs));
 	
+	}if(isset($_POST['artist'])){
 	    
-	}else if(isset($_POST['artist'])){
-	    
-	    $songs = $this->module->mpd->Search(mpd::MPD_SEARCH_ARTIST, $_POST['artist']);
-	    $this->render('album',array('songs'=>$songs));
-	    
+	    $artistSongs = $this->module->mpd->Search(mpd::MPD_SEARCH_ARTIST, $_POST['artist']);
+	    //$this->render('songs',array('songs'=>$songs));    
 	}
+	$albumArray = isset($albumSongs["files"]) ? $albumSongs["files"] : array();
+	$artistArray = isset($artistSongs["files"]) ? $artistSongs["files"] : array();
+	if(!empty($albumArray)){
+	    foreach($artistArray as $artistItem){
+		foreach($albumArray as $albumItem){
+		    if($artistItem['file'] == $albumItem['file']){
+			$songs[] = $albumItem;
+		    }
+		}
+	    }
+	}else{
+	    $songs = $artistArray;
+	}
+	
+	$this->render('songs',array('songs'=>$songs));
     }
     
 }

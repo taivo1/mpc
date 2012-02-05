@@ -1,10 +1,11 @@
 <ul id="albums">
+    <li class="album"><a class="all" href="#"><?php echo Yii::t('library','All'); ?></a></li>
     <?php if(isset($albums) && !empty($albums) && is_array($albums)): foreach($albums as $key => $item): ?>
-	<?php $album = ($item != "") ? $item : 'No album defined'; ?>
-	<li class="album"><a href="#"><?php echo $album; ?></a></li>
-	
+	    <?php if($item != ""): ?>
+		<li class="album"><a href="<?php echo urlencode($item); ?>"><?php echo $item; ?></a></li>
+	    <?php endif; ?>
     <?php endforeach; else: ?>
-	<li class="album"><a href="#"><?php echo 'No album defined'; ?></a></li>
+<!--	<li class="album"><a href="#"><?php //echo 'No album defined'; ?></a></li>-->
     <?php endif; ?>
 	
 </ul>
