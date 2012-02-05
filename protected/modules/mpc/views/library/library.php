@@ -6,8 +6,8 @@
 <!--	<a href="#" id="show-genres">select</a>-->
     </div>
     <div id="library-type" class="col-btn section-menu">
-	<a id="view-artists" href="#"><span><?php echo Yii::t('library','Artists & albums');?></span></a>
-	<a id="view-albums" href="#"><span><?php echo Yii::t('library','Albums');?></span></a>
+	<a id="view-artists" style="display: none;" href="#"><span><?php echo Yii::t('library','Artists & albums');?></span></a>
+	<a id="view-albums"  href="#"><span><?php echo Yii::t('library','Albums');?></span></a>
     </div>	
     <div class="col-left">
 	<ul id="artists">

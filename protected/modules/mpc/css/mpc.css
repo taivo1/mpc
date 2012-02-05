@@ -715,6 +715,7 @@ ul.folder>li span.delete
     display:block;
     position: absolute;
     z-index: 1;
+    top: 0px;
     left: -20px;
     width: 20px;
     height: 80px;
@@ -722,18 +723,27 @@ ul.folder>li span.delete
 }
 a#view-artists
 {
-    top: 0;
+    background: url('../../images/artist_1.png') no-repeat;
+}
+a#view-artists:hover
+{
+    background: url('../../images/artist_2.png') no-repeat;
 }
 a#view-albums
 {
-    top: 90px;
+    background: url('../../images/album_1.png') no-repeat;
 }
+a#view-albums:hover
+{
+    background: url('../../images/album_2.png') no-repeat;
+}
+
 #library-type a>span{visibility: hidden;}
 #library>div.col-btn, #library>div.col-left, #library>div.col-center, #library>div.col-right
 {
     float: left;
 }
-#artists
+#artists, #albums
 {
     width: 430px;
     height: 500px;
@@ -742,7 +752,7 @@ a#view-albums
     overflow-y: scroll;
     overflow-x: hidden;
 }
-#artists>li, #songs>li
+#artists>li, #albums>li, #songs>li
 {
     list-style: none;
     padding: 3px 0 3px 0;
@@ -764,19 +774,19 @@ a#view-albums
     top: -2px;
 }
 
-    #artists>li.even, #songs>li.even
+    #artists>li.even, #albums>li.even, #songs>li.even
     {
 	background: #FFF;
     }
-    #artists>li.even:not(.selected):hover, #songs>li.even:not(.selected):hover
+    #artists>li.even:not(.selected):hover, #albums>li.even:not(.selected):hover, #songs>li.even:not(.selected):hover
     {
 	background: #f6f6f6;
     }
-    #artists>li.odd, #songs>li.odd
+    #artists>li.odd, #albums>li.odd, #songs>li.odd
     {
 	background: #EEE;
     }
-    #artists>li.odd:not(.selected):hover, #songs>li.odd:not(.selected):hover
+    #artists>li.odd:not(.selected):hover, #albums>li.odd:not(.selected):hover, #songs>li.odd:not(.selected):hover
     {
 	background: #E3E3E3;
     }
@@ -789,7 +799,7 @@ a#view-albums
 	font-size: 12px;
 	margin: 0;
     }
-    #artists>li>a, ul.albums>li>a, #songs>li>a
+    #artists>li>a, #albums>li>a, ul.albums>li>a, #songs>li>a
     {
 	text-decoration: none;
 	color: #333;
@@ -797,7 +807,7 @@ a#view-albums
 	font-size: 12px;
 	margin: 0;
     }
-    #artists>li>a
+    #artists>li>a, #albums>li>a
     {
 	padding: 0 5px 0 5px;
 	font-weight: bold;
@@ -812,7 +822,7 @@ a#view-albums
 	
 	font-weight: bold;
     }
-    #artists>li.selected>a
+    #artists>li.selected>a, #albums>li.selected>a
     {
 	font-weight: bold;
 	font-size: 16px;
