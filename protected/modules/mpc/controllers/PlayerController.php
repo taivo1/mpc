@@ -27,15 +27,26 @@ class PlayerController extends Controller
 	}
 	public function actionNext()
 	{
-	    $this->module->mpd->Next();
-	
+	    $plLen = isset($this->module->mpd->status['playlistlength']) ? (int)$this->module->mpd->status['playlistlength'] : 0;
+	    $curSong = isset($this->module->mpd->status['song']) ? $this->module->mpd->status['song'] : null;
+	    if($plLen > 0 && $curSong){
+		$this->module->mpd->Next();
+	    }elseif($plLen > 0){
+		$this->module->mpd->PlayPos(0);
+	    }
 	    $data = array('current'=>$this->module->mpd->currentsong,'status'=>$this->module->mpd->status);
 	    
 	    echo json_encode($data);
 	}
 	public function actionPrev()
 	{
-	    $this->module->mpd->Previous();
+	    $plLen = isset($this->module->mpd->status['playlistlength']) ? (int)$this->module->mpd->status['playlistlength'] : 0;
+	    $curSong = isset($this->module->mpd->status['song']) ? $this->module->mpd->status['song'] : null;
+	    if($plLen > 0 && $curSong){
+		$this->module->mpd->Previous();
+	    }elseif($plLen > 0){
+		$this->module->mpd->PlayPos(0);
+	    }
 	    $data = array('current'=>$this->module->mpd->currentsong,'status'=>$this->module->mpd->status);
 	    echo json_encode($data);
 	}

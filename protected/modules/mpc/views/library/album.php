@@ -14,8 +14,8 @@
 			$fileArray = array_reverse(explode('/', $song['file']));
 			$title = isset($song['Title']) ? $song['Title'] : $fileArray[0];		    
 			?>
-			    <li class="file">
-				<a href="<?php echo $song['file']; ?>"><?php echo $title; ?>
+			    <li class="file" data-type="file">
+				<a href="<?php echo urlencode($song['file']); ?>"><?php echo $title; ?>
 				    <span class="addnext"></span>
 				    <span class="play"></span>
 				</a>

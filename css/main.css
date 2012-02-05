@@ -63,7 +63,15 @@ body
 	padding: 10px 20px;
 	font-size: 200%;
 	float: left;
-	
+	width: 233px;
+	height: 31px;
+/*	background: url(../images/logo.png) no-repeat;*/
+}
+#logo>span
+{
+    
+    text-shadow: #A9B838 0px 0px 10px;
+    color: #CFE142;
 }
 #player
 {

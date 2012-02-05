@@ -36,13 +36,17 @@ class BrowseController extends Controller
 	{
 	    if(isset($_POST['uri'],$_POST['type'])){
 		
-		$plLen = isset($this->module->mpd->status['playlistlength']) ? (int)$this->module->mpd->status['playlistlength'] : NULL;
+		$plLen = isset($this->module->mpd->status['playlistlength']) ? (int)$this->module->mpd->status['playlistlength'] : 0;
+		$curSong = isset($this->module->mpd->status['song']) ? $this->module->mpd->status['song'] : null;
+		
 		if($_POST['type'] == 'file'){
 		    
 		    $id = $this->module->mpd->PLAddTrack($_POST['uri']);
-		    if($plLen > 0){
+		    if($plLen > 0 && $curSong){
 			$this->module->mpd->PLMoveTrack($id, -1);
 			$this->module->mpd->Next();
+		    }elseif($plLen > 1){
+			$this->module->mpd->PlayPos($plLen);
 		    }else{
 			$this->module->mpd->Play();
 		    }

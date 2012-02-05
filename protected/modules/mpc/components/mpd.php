@@ -941,7 +941,7 @@ class mpd
 	{
 		$this->_addLog(__METHOD__,"send");
 		$rpt = null;
-		if((int)$this->status['playlistlength'] <= (int)$this->status['song'] + 1){
+		if(!isset($this->status['song']) || (int)$this->status['playlistlength'] <= (int)$this->status['song'] + 1){
 		    $this->GetCurrentSong();
 		}else{
 		    if ( !is_null($rpt = $this->SendCommand(self::MPD_CMD_NEXT)) ){
