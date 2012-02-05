@@ -9,10 +9,16 @@ class LibraryController extends Controller
 	$this->render('library',array('artists'=>$artists, 'genres'=>$genres));
     }
     
+    public function actionGenres()
+    {
+	$genres = $this->module->mpd->GetGenres();
+	echo json_encode($genres);
+    }
+    
     public function actionArtists()
     {
 	if(isset($_POST['genre'])){
-	    $genre = ($_POST['genre'] != "all") ? $_POST['genre'] : null;
+	    $genre = ($_POST['genre'] != "All") ? $_POST['genre'] : null;
 	    if($genre){
 		$response = $this->module->mpd->Search(mpd::MPD_SEARCH_GENRE, $genre);
 		$artists = array();

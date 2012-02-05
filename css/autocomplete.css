@@ -1,0 +1,97 @@
+/* 
+    Document   : autocomplete
+    Created on : Feb 5, 2012, 5:11:31 PM
+    Author     : taivo
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+#genre
+{
+    width: 250px;
+    border: 1px solid #999;
+    height: 16px;
+    padding: 3px 5px 3px 5px;
+    font-size: 12px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -khtml-border-radius: 3px;
+    outline: none;
+}
+#genre:focus
+{
+    border: 1px solid #298DCD;
+}
+#select-genre
+{
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #DDD;
+}
+#autocomplete-menu
+{
+    display: none;
+    position: absolute;
+    background: #FFF;
+    width: 240px;
+    border: 1px solid #DDD;
+    padding: 10px;
+    max-height: 400px;
+    left: 43px;
+    top: 25px;
+    
+    -moz-border-radius: 5px; /* Firefox */
+    -webkit-border-radius: 5px; /* Safari, Chrome */
+    border-radius: 5px; /* CSS3 */
+	
+    -moz-box-shadow: 0px 10px 20px #333; /* Firefox */
+    -webkit-box-shadow: 0px 10px 20px #333; /* Safari, Chrome */
+    box-shadow: 0px 10px 20px #333; /* CSS3 */
+}
+ul.ui-autocomplete
+{
+    max-height: 400px;
+    width: 240px !important;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+ul.ui-autocomplete>li
+{
+    list-style: none;
+}
+ul.ui-autocomplete>li:hover, ul.ui-autocomplete>li.focus
+{
+    background-color: #333;
+}
+ul.ui-autocomplete>li:hover a, ul.ui-autocomplete>li.focus a
+{
+    color: #EEE;
+    text-shadow: #EEE 0px 0px 3px;
+    text-decoration: none;
+}
+ul.ui-autocomplete>li a
+{
+    cursor: pointer;
+    display: block;
+    width: 240px;
+    height: 16px;
+    padding: 1px 5px 1px 5px;
+    cursor: hand;
+    color: #333;
+    text-shadow: #aaa 0px 0px 3px;
+}

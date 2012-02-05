@@ -1,22 +1,23 @@
 <div id="library">
-    <div id="genre">
-	<select name="genre" id="genre">
-	    <option value="all"><?php echo Yii::t('library','All Genres'); ?></option>
-	    <?php if(isset($genres) && !empty($genres) && is_Array($genres)): foreach($genres as $key => $genre): ?>
-		<option value="<?php echo $genre; ?>"><?php echo $genre; ?></option>
-	    <?php endforeach; endif; ?>
-	</select>
+    <div id="select-genre" class="ui-widget">
+	<label for="genre">Genre: </label>
+	<input id="genre" value="All"/>
+	<div id="autocomplete-menu"></div>
+<!--	<a href="#" id="show-genres">select</a>-->
     </div>
+    <div id="library-type" class="col-btn section-menu">
+	<a id="view-artists" href="#"><span><?php echo Yii::t('library','Artists & albums');?></span></a>
+	<a id="view-albums" href="#"><span><?php echo Yii::t('library','Albums');?></span></a>
+    </div>	
     <div class="col-left">
 	<ul id="artists">
 	    <?php if(isset($artists) && !empty($artists) && is_array($artists)): foreach($artists as $key => $artist): ?>
-
-		<li class="artist"><a href="<?php echo urlencode($artist); ?>"><?php echo $artist; ?></a></li>
+		<?php $class = ($key % 2) ? 'odd' : 'even';?>
+		<li class="artist <?php echo $class; ?>"><a href="<?php echo urlencode($artist); ?>"><?php echo $artist; ?></a></li>
 
 	    <?php endforeach; endif; ?>
 	</ul>	
     </div>
-    <div class="col-center"></div>
     <div class="col-right"></div>
     <div class="clear"></div>
 </div>

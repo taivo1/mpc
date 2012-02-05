@@ -12,6 +12,7 @@ var Mpc = {
     volume: null,
     updateInterval: null,
     dbUpdate: 0,
+    genres: null,
      
     init: function(){
 	
@@ -64,7 +65,7 @@ var Mpc = {
 	$(document).delegate('ul.folder>li:not(.directory)>a','click',function(e){
 	    Mpc.beforeHandlerAction(Mpc.handlers.selectFolderItem,this,e)
 	});
-	$(document).delegate('ul.folder>li.file>a','dblclick',function(e){
+	$(document).delegate('ul.folder>li.file>a, #songs>li>a','dblclick',function(e){
 	    Mpc.beforeHandlerAction(Mpc.handlers.addItemToPlaylist,this,e)
 	});
 	$(document).delegate('ul.folder>li span.addfolder','click',function(e){
@@ -101,9 +102,9 @@ var Mpc = {
 	});
 	$(document).delegate('#library li.album>a','click',function(e){
 	    Mpc.beforeHandlerAction(Mpc.handlers.selectAlbum,this,e)
-	});
-	$(document).delegate('#library select','change',function(e){
-	    Mpc.beforeHandlerAction(Mpc.handlers.filterByGenre,this,e)
+	});	
+	$(document).delegate('#library-type>a','click',function(e){
+	    Mpc.beforeHandlerAction(Mpc.handlers.libraryMode,this,e)
 	});
 	
 	
@@ -239,6 +240,65 @@ var Mpc = {
 	    
 	});
 	
+    },
+    getGenres: function(callback){
+	Ajax.query(mainUrl + '/mpc/library/genres',null,function(data){
+	    data.unshift("All");
+	    Mpc.genres = data;
+	    if(callback instanceof Function) callback();
+	},"POST","json");
+    },
+    initAutocomplete: function(){
+		    
+	    $('#genre').autocomplete({
+	    
+		minLength: 2,
+		appendTo: "#autocomplete-menu",
+		source: Mpc.genres,
+		//position: { my : "left top", at: "left bottom", offset: "0 10"},
+		create: function(event, ui){
+		    //console.log(ui);
+		},
+		open: function(event, ui){
+		    $('#autocomplete-menu').show();
+		},
+		close: function(event, ui){
+		    if($('#genre').val() == ""){
+			$('#genre').val("All");
+			Mpc.beforeHandlerAction(Mpc.handlers.filterByGenre,"All",event);
+		    }
+		    $('#autocomplete-menu').hide();
+		},
+		search: function(event, ui){
+		    //console.log('search');
+		},
+		focus: function(event, ui){
+//		    console.log(event);
+//		    console.log(ui.item);
+//		    $('#autocomplete-menu li').removeClass('focus');
+//		    $('#autocomplete-menu').find('li>a:contains('+ui.item.label+')').parent('li').addClass('focus');
+//		    $('#autocomplete-menu li').removeClass('focus');
+//		    $(event.target).addClass('focus');
+		},
+		select: function(event, ui){
+		    $('#genre').val(ui.item.label).blur();
+		    Mpc.beforeHandlerAction(Mpc.handlers.filterByGenre,ui.item.value,event);
+		}
+	    
+	    });
+//	    $(document).delegate("#show-genres","click",function(e){
+//		e.preventDefault();
+//		ShowAll();
+//	    });
+	    $("#genre").focus(function(){
+		$(this).val("");
+		ShowAll();
+	    });
+	    
+	    function ShowAll(){
+		$('#genre').autocomplete( "option" , "minLength" , 0 );
+		$('#genre').autocomplete("search" , "");
+	    }
     },
     
     movePlaylistTrack: function(element,position){
@@ -784,19 +844,30 @@ var Mpc = {
 		
 		selectArtist: function(el,e){
 		    e.preventDefault();
-		    $('#artists>li.artist').removeClass('selected');
-		    $(el).closest('li').addClass('selected');
-		    var artist = $(el).attr('href');
 		    
-		    Ajax.query(mainUrl + '/mpc/library/albums', 'artist='+artist, function(data){
-			
-			$('#library>div.col-center').html(data);
-			Base.pageData['library'] = $('#library');
-		    },"POST");
+		    var item = $(el).closest('li');
+		    var artist = $(el).attr('href');
+		    var child = item.find('ul.albums').first();
+		    
+		    $('#artists>li.artist').removeClass('selected');
+		    item.addClass('selected');
+		    
+		    $('#artists>li.artist>ul.albums').hide(200);
+		    if(child.length > 0 && child.is(':hidden')) child.show(200);
+		    
+		    if(child.length == 0){
+			Ajax.query(mainUrl + '/mpc/library/albums', 'artist='+artist, function(data){
+			    var d = $(data);
+			    d.css('display','none');
+			    item.append(d);
+			    item.find(d).show(200);
+			    Base.pageData['library'] = $('#library');
+			},"POST");
+		    }
 		},
 		selectAlbum: function(el,e){
 		    e.preventDefault();
-		    $('#albums>li.album').removeClass('selected');
+		    $('ul.albums>li.album').removeClass('selected');
 		    $(el).closest('li').addClass('selected');
 		    var album = ($(el).hasClass('all')) ? null : $(el).attr('href');
 		    var artist = $('#artists>li.selected>a').attr('href');
@@ -807,15 +878,17 @@ var Mpc = {
 			Base.pageData['library'] = $('#library');
 		    },"POST");
 		},
-		filterByGenre: function(el,e){
+		filterByGenre: function(genre,e){
 		    e.preventDefault();
-		    var genre = $(el).val();
-		    
 		    Ajax.query(mainUrl + '/mpc/library/artists', 'genre='+genre, function(data){
 			
 			$('#library>div.col-left').html(data);
 			Base.pageData['library'] = $('#library');
 		    },"POST");
+		},
+		libraryMode: function(el,e){
+		    e.preventDefault();
+		    
 		},
 		
 		

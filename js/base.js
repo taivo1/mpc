@@ -141,6 +141,7 @@ var Base = {
 			}
 		    }else if(Base.page == 'library' && Base.pageData.library instanceof Object){
 			$('#content').html(Base.pageData.library);
+			Mpc.initAutocomplete();
 			$(window).scrollTop(0);
 		    }else if(Base.page == 'search' && Base.pageData.search instanceof Object){
 			$('#content').html(Base.pageData.search);
@@ -155,6 +156,8 @@ var Base = {
 			    $('#content').html(data);
 			    if(Base.page == 'playlist'){
 				Mpc.initPlaylistSorting();
+			    }else if(Base.page == 'library'){
+				Mpc.getGenres(Mpc.initAutocomplete);
 			    }
 			    target = $('#content').find('li.current');
 			    if(target.length > 0){
