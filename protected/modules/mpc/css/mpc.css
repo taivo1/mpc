@@ -761,6 +761,10 @@ a#view-albums:hover
     margin: 0;
     border-bottom: 1px solid #DDD;
 }
+#songs>li
+{
+    position: relative;
+}
 #songs>li>a
 {
     font-weight: bold;
@@ -849,7 +853,7 @@ ul.albums>li:hover
 {
     background-color: #DFDFDF;
 }
-ul.albums>li a, #artists>li a
+ul.albums>li a, #albums>li a, #artists>li a
 {
     display: block;
     width: 400px;
