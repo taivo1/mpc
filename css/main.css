@@ -65,13 +65,16 @@ body
 	float: left;
 	width: 233px;
 	height: 31px;
-/*	background: url(../images/logo.png) no-repeat;*/
+	background: url(../images/logo.png) no-repeat;
 }
 #logo>span
 {
     
-    text-shadow: #A9B838 0px 0px 10px;
-    color: #CFE142;
+/*    text-shadow: #A9B838 0px 0px 10px;*/
+/*    color: #CFE142;*/
+	color: #333;
+	text-shadow: #333 0px 0px 5px;
+	padding-left: 80px;
 }
 #player
 {

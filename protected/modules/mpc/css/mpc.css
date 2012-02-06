@@ -755,8 +755,8 @@ a#view-albums:hover
 #artists>li, #albums>li, #songs>li
 {
     list-style: none;
-    padding: 3px 0 3px 0;
-    line-height: 12px;
+    padding: 0;
+    line-height: 18px;
     font-size: 12px;
     margin: 0;
     border-bottom: 1px solid #DDD;
@@ -764,7 +764,6 @@ a#view-albums:hover
 #songs>li
 {
     position: relative;
-    padding: 0 !important;
     line-height: 16px;
     height: 18px;
 }
@@ -803,8 +802,7 @@ a#view-albums:hover
     ul.albums>li, #songs>li
     {
 	list-style: none;
-	padding: 3px;
-	line-height: 12px;
+	line-height: 18px;
 	font-size: 12px;
 	margin: 0;
     }
@@ -812,8 +810,10 @@ a#view-albums:hover
     {
 	text-decoration: none;
 	color: #333;
-	line-height: 12px;
+	line-height: 16px;
+	height: 18px;
 	font-size: 12px;
+	padding: 1px 3px 1px 3px;
 	margin: 0;
     }
     #artists>li>a, #albums>li>a
