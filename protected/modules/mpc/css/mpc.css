@@ -746,9 +746,9 @@ a#view-albums:hover
 #artists, #albums
 {
     width: 430px;
-    height: 500px;
+    height: 460px;
     margin: 0 10px 0 10px;
-    padding: 0;
+    padding: 0 0 40px 0;
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -764,18 +764,23 @@ a#view-albums:hover
 #songs>li
 {
     position: relative;
+    padding: 0 !important;
+    line-height: 16px;
+    height: 18px;
 }
 #songs>li>a
 {
     font-weight: bold;
     display: block;
-    height: 14px;
+    height: 18px;
+    line-height: 16px !important;
+    padding: 1px 3px 1px 3px;
     width: 440px;
 }
 #songs>li span
 {
-    position: relative;
-    top: -2px;
+/*    position: relative;
+    top: -2px;*/
 }
 
     #artists>li.even, #albums>li.even, #songs>li.even
@@ -873,21 +878,99 @@ ul.albums>li.selected>a
 #songs
 {
     width: 460px;
-    height: 300px;
+    height: 500px;
     margin: 0;
     padding: 0;
     overflow-y: scroll;
     overflow-x: hidden;
 }
+#album-info-wrap, #search-box-wrap
+{
+    position: relative;
+    text-align: center;
+    padding: 0px 0 0 0;
+    border-top: 1px solid #DDD;
+}
+#search-box-wrap
+{
+    margin: 0 10px 0 10px;
+}
+a#album-info-handle
+{
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    text-shadow: #333 0px 0px 3px;
+    background: #FFF;
+    padding: 4px 10px 4px 10px;
+    top: -24px;
+    left: 190px;
+    z-index: 1;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+a#search-box-handle
+{
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    background: #FFF;
+    text-shadow: #333 0px 0px 3px;
+    left: 0;
+    top: -24px;
+    z-index: 1;
+    border: 1px solid #ddd;
+    border-left: 0;  
+    border-bottom: none;
+    padding: 4px 10px 4px 10px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-right-radius: 5px;
+}
 #album-info
 {
-    width: 460px;
-    min-height: 200px;
+    width: 440px;
+    min-height: 160px;
     overflow-y: scroll;
     overflow-x: hidden;
-    background: #DDD;
+/*    background: #DDD;*/
+    padding: 10px;
 }
+#search-box
+{
+    min-height: 40px;
+    width: 400px;
+    padding: 5px;
+}
+#library-search
+{
+    width: 340px;
+    border: 1px solid #999;
+    padding: 3px;
+    line-height: 12px;
+    margin: 10px 10px 0 5px;
+    font-size: 12px;
 
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius: 3px;
+    -khtml-border-radius: 3px; /* for old Konqueror browsers */
+
+    outline:none;
+}
+#library-search:focus
+{
+    border: 1px solid #298DCD;
+}
 /* player */
 #cursong
 {

@@ -1,5 +1,5 @@
 
-<ul id="songs">
+
     <?php 
 	
 	if(isset($songs) && !empty($songs) && is_array($songs)){
@@ -25,5 +25,3 @@
 	} 
      
 	?>
-</ul>
-<div id="album-info"></div>

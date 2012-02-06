@@ -107,6 +107,12 @@ var Mpc = {
 	$(document).delegate('#library-type>a','click',function(e){
 	    Mpc.beforeHandlerAction(Mpc.handlers.libraryMode,this,e)
 	});
+	$(document).delegate('a#album-info-handle','click',function(e){
+	    Mpc.beforeHandlerAction(Mpc.handlers.toggleAlbumInfo,this,e)
+	});
+	$(document).delegate('a#search-box-handle','click',function(e){
+	    Mpc.beforeHandlerAction(Mpc.handlers.toggleSearchBox,this,e)
+	});
 	
 	
 	//search
@@ -876,15 +882,18 @@ var Mpc = {
 		    
 		    Ajax.query(mainUrl + '/mpc/library/find', 'album='+album+'&artist='+artist+'&mode='+Mpc.libraryMode, function(data){
 			console.log(data);
-			$('#library>div.col-right').html(data);
+			$('#songs').html(data);
 			Base.pageData['library'] = $('#library');
 		    },"POST");
 		},
 		filterByGenre: function(genre,e){
 		    if(e instanceof Object) e.preventDefault();
+		    var h = $('#library>div.col-left>ul').height();
 		    Ajax.query(mainUrl + '/mpc/library/artists', 'genre='+genre+'&mode='+Mpc.libraryMode, function(data){
-			
-			$('#library>div.col-left').html(data);
+			var d = $(data);
+			d.css('height',h+'px');
+			$('#library>div.col-left>ul').remove()
+			$('#library>div.col-left').prepend(d);
 			Base.pageData['library'] = $('#library');
 		    },"POST");
 		},
@@ -904,6 +913,41 @@ var Mpc = {
 			Mpc.handlers.filterByGenre(genre,e);
 		    }
 		},
+		toggleAlbumInfo: function(el,e){
+		    e.preventDefault();
+		    var container = $('#album-info');
+		    var songBox = $('#songs');
+		    if(container.is(':visible')){
+			container.hide();
+			songBox.animate({
+			    height: '500px'
+			},200,function(){});
+		    }else{
+			songBox.animate({
+			    height: '320px'
+			},200,function(){container.show();});
+			
+		    }
+		},
+		toggleSearchBox: function(el,e){
+		    e.preventDefault();
+		    var container = $('#search-box');
+		    var libraryBox = $('div.col-left>ul');
+		    if(container.is(':visible')){
+			container.hide();
+			libraryBox.animate({
+			    height: '460px'
+			},100,function(){});
+		    }else{
+			libraryBox.animate({
+			    height: '410px'
+			},100,function(){container.show();});
+			
+		    }
+		},
+		
+		
+		
 		
 		
 		//search

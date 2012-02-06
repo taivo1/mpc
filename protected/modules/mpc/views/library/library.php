@@ -16,8 +16,24 @@
 		<li class="artist <?php echo $class; ?>"><a href="<?php echo urlencode($artist); ?>"><?php echo $artist; ?></a></li>
 
 	    <?php endforeach; endif; ?>
-	</ul>	
+	</ul>
+	<div id="search-box-wrap">
+	    <a href="#" id="search-box-handle"><?php echo Yii::t('library','S'); ?></a>
+	    <div id="search-box" style="display: none;">
+		<input type="text" id="library-search" placeholder="<?php echo Yii::t('library','Artist/Album name'); ?>"/>
+	    </div>
+	</div>    
     </div>
-    <div class="col-right"></div>
+    <div class="col-right">
+	<ul id="songs">
+	    
+	</ul>
+	<div id="album-info-wrap">
+	    <a href="#" id="album-info-handle"><?php echo Yii::t('library','Album info'); ?></a>
+	    <div id="album-info" style="display: none;">
+		
+	    </div>
+	</div>
+    </div>
     <div class="clear"></div>
 </div>
