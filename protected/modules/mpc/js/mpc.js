@@ -14,6 +14,7 @@ var Mpc = {
     dbUpdate: 0,
     genres: null,
     libraryMode: 'artist',
+    libraryList: null,
      
     init: function(){
 	
@@ -113,7 +114,9 @@ var Mpc = {
 	$(document).delegate('a#search-box-handle','click',function(e){
 	    Mpc.beforeHandlerAction(Mpc.handlers.toggleSearchBox,this,e)
 	});
-	
+	$(document).delegate('#library-search', 'keyup', function(e){
+		Mpc.beforeHandlerAction(Mpc.handlers.listFilter,this,e)
+	});
 	
 	//search
 	
@@ -147,43 +150,12 @@ var Mpc = {
     },
     
     beforeHandlerAction: function(callback,el,e){
-//	console.log('before action we stop idle');
-//	if(Mpc.idleStatus){
-//	    Ajax.query(mainUrl + '/mpc/player/idle', 'action=false', function(data){
-//		console.log('noidle-resp');
-//		console.log(data);
-//		Mpc.idleStatus = false;
-//		if(callback instanceof Function) callback(el,e);
-//	    },"POST","json");
-//	}else{
 	    
 	    if(callback instanceof Function) callback(el,e);
-	//}
     },
         
-    
-    
+   
     Idle: function(action){
-	
-//	action = Boolean(action);
-//	if(action && Mpc.idleStatus == false){
-//	    console.log('idle-sent');
-//	    Ajax.query(mainUrl + '/mpc/player/idle', 'action=true', function(data){
-//
-//		console.log('idle-resp');
-//		console.log(data);
-//		Mpc.idleStatus = true;
-//
-//	    },"POST","json");
-//	}else if(!action && Mpc.idleStatus == true){
-//	    console.log('noidle-sent');
-//	    Ajax.query(mainUrl + '/mpc/player/idle', 'action=false', function(data){
-//
-//		console.log('noidle-resp');
-//		console.log(data);
-//		Mpc.idleStatus = false;
-//	    },"POST","json");
-//	}
 	
     },
     
@@ -501,6 +473,9 @@ var Mpc = {
 		},"POST",'json');
 	    }, 4000 );	
     },
+    
+    
+    
     
     
     
@@ -945,6 +920,22 @@ var Mpc = {
 			
 		    }
 		},
+		
+		listFilter: function(el,e){
+		    e.stopPropagation();
+		    var filter = $(el).val(),
+			list = $('#library div.col-left>ul');
+		    if(filter){
+			list.find("a:not(:contains(" + filter + "))").parent().hide();
+			list.find("a:contains(" + filter + ")").parent().show();
+		    }else{
+			list.find("li").show();
+		    }
+		  
+		  
+		},
+		
+		
 		
 		
 		

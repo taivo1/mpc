@@ -773,13 +773,23 @@ a#view-albums:hover
     display: block;
     height: 18px;
     line-height: 16px !important;
-    padding: 1px 3px 1px 3px;
-    width: 440px;
+    padding: 1px 43px 1px 3px;
+    width: 400px;
+    overflow: hidden;
 }
 #songs>li span
 {
-/*    position: relative;
-    top: -2px;*/
+    position: absolute;
+    top: 1px;
+    z-index: 1;
+}
+#songs>li span.play
+{
+    left: 400px;
+}
+#songs>li span.addnext
+{
+    left: 420px;
 }
 
     #artists>li.even, #albums>li.even, #songs>li.even
