@@ -87,7 +87,7 @@
     <div id="top">
     
 	<div id="header">
-		<div id="logo"><span><?php echo CHtml::encode(Yii::app()->name); ?></span></div>
+		<div id="logo"><span><?php //echo CHtml::encode(Yii::app()->name); ?></span></div>
 		<div id="player">
 		    <?php 
 			$mpcModule = Yii::app()->getModule('mpc');
