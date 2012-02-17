@@ -374,8 +374,16 @@ var Mpc = {
 		    html += data.current.Artist+' - '+data.current.Title;
 		}else if(data.current.hasOwnProperty('Title')){
 		    html += data.current.Title;
+		}else if(data.current.hasOwnProperty('Name')){
+		    
+		    if((data.current.Name).indexOf("://") != -1){
+			html += (data.currentsong.hasOwnProperty('Title')) ? data.currentsong.Title : (data.current.file).split('/').reverse()[0];
+		    }else{
+			html += data.current.Name;
+		    }
+		    
 		}else{
-		    html += data.current.file;
+		    html += (data.current.file).split('/').reverse()[0];
 	      }
 
 	      if(data.current.hasOwnProperty('Time')){
